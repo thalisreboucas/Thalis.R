@@ -3,8 +3,9 @@
 /*======================================
  [ -Main Stylesheet-
   Theme: Solonick
-  Version: 1.0
-  Last change: 10/04/2018 ]
+  User: Thalis
+  Version: 2.0
+  Last change: 28/03/2022 ]
 ++ Fonts ++
 ++ General Style ++
 ++ Loader++
@@ -49,6 +50,26 @@ body {
 @viewport {
 	width: device-width;
 }
+
+
+
+/*-------------Scroll-Bar---------------------------------------*/
+
+
+::-webkit-scrollbar-track {
+    background-color: #232323;
+}
+::-webkit-scrollbar {
+    width: 6px;
+    background: #232323;
+}
+::-webkit-scrollbar-thumb {
+    background: #323232;
+}
+
+
+
+
 /* ---------Page preload--------------------------------------*/
 
 .loader-wrap {
