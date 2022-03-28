@@ -111,7 +111,7 @@ body {
 	overflow: hidden;
 	max-width: 0;
 	text-align: left;
-	animation: pinanim 2.2s ease-out infinite;
+	animation: pinanim 4.2s ease-out infinite;
 }
 @keyframes pinanim {
 	0% {
@@ -312,9 +312,9 @@ blockquote p {
 }
 .logo-holder {
 	float: left;
-	width: 80px;
-	height: 80px;
-	line-height: 80px;
+	width: 90px;
+	height: 90px;
+	line-height: 90px;
 }
 .logo-holder img {
 	width: 30px;
