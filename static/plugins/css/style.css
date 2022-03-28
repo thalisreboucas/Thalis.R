@@ -100,13 +100,13 @@ body {
 	text-align: left;
 }
 .pin:after {
-	content: "Solonick : ";
+	content: "Thalis.R : ";
 	position: absolute;
 	left: -100%;
 	color: rgba(255, 255, 255, 0.51);
 }
 .pin:before {
-	content: "Loading";
+	content: "Carregando ...";
 	position: absolute;
 	overflow: hidden;
 	max-width: 0;
