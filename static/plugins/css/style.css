@@ -5189,50 +5189,18 @@ section.parallax-section .section-title:before {
 	color: rgba(255, 255, 255, 0.41);
 	text-decoration: underline;
 }
-.share-icon-digg:after {
-	content: "digg";
-}
-.share-icon-email:after {
-	content: "email";
-}
-.share-icon-flickr:after {
-	content: "flickr";
-}
-.share-icon-foursquare:after {
-	content: "foursquare";
-}
-.share-icon-rss:after {
-	content: "rss";
-}
+
 .share-icon-facebook:after {
-	content: "facebook";
+	content: "instagram";
 }
 .share-icon-twitter:after {
 	content: "twitter";
 }
 .share-icon-tumblr:after {
-	content: "tumblr";
+	content: "youtube";
 }
-.share-icon-linkedin:after {
-	content: "linkedin";
-}
-.share-icon-vimeo:after {
-	content: "vimeo";
-}
-.share-icon-instagram:after {
-	content: "instagram";
-}
-.share-icon-pinterest:after {
-	content: "pinterest";
-}
-.share-icon-googleplus:after {
-	content: "googleplus";
-}
-.share-icon-in1:after {
-	content: "in1";
-}
-.share-icon-stumbleupon:after {
-	content: "stumbleupon";
+.share-icon-tumblr:after {
+	content: "spotify";
 }
 
 .custom-form {
@@ -6134,9 +6102,6 @@ section.parallax-section .section-title:before {
 	.half-hero-wrap h1 {
 		font-size: 30px;
 		line-height: 50px;
-	}
-	.client-list li a {
-		padding: 15px 30px;
 	}
 	.fet_pr-carousel-title {
 		position: relative;
