@@ -6281,14 +6281,6 @@ section.parallax-section .section-title:before {
 	section.parallax-section.parallax-sec-half-left:after {
 		left: 80%;
 	}
-	.price-item {
-		width: 100%;
-		margin-bottom: 20px;
-	}
-	.best-price {
-		top: 0;
-		transform: scale(1.0);
-	}
 	.serv-works-item {
 		padding: 40px 50px;
 	}
@@ -6501,9 +6493,6 @@ section.parallax-section .section-title:before {
 	}
 	.fw-map-container {
 		margin-bottom:20px !important;
-	}
-	.team-box  {
-		padding:10px 0;
 	}
 }
 @media only screen and (-webkit-min-device-pixel-ratio: 2) {

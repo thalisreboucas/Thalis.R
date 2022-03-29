@@ -523,7 +523,7 @@ function initSolonick() {
     if ($("#twitts-container").length > 0) {
         var config1 = {
             "profile": {
-                "screenName": 'envatomarket'
+                "screenName": 'thalisreboucas'
             },
             "domId": 'twitts-container',
             "maxTweets": 2,
@@ -541,10 +541,8 @@ function initSolonick() {
             $.post(a, {
                 name: $("#name").val(),
                 email: $("#email").val(),
-                phone: $("#phone").val(),
                 subject: $('#subject').val(),
-                comments: $("#comments").val(),
-                verify: $('#verify').val()
+                comments: $("#comments").val()
 
             }, function (a) {
                 document.getElementById("message").innerHTML = a;
@@ -559,19 +557,14 @@ function initSolonick() {
         $("#message").slideUp(1500);
     });
     $('.chosen-select').selectbox();
-    //   mailchimp------------------
-    $("#subscribe").ajaxChimp({
-        language: "eng",
-        url: "https://gmail.us1.list-manage.com/subscribe/post?u=1fe818378d5c129b210719d80&amp;id=a2792f681b"
-    });
     $.ajaxChimp.translations.eng = {
         submit: "Submitting...",
-        0: '<i class="fa fa-check"></i> We will be in touch soon!',
-        1: '<i class="fa fa-warning"></i> You must enter a valid e-mail address.',
-        2: '<i class="fa fa-warning"></i> E-mail address is not valid.',
-        3: '<i class="fa fa-warning"></i> E-mail address is not valid.',
-        4: '<i class="fa fa-warning"></i> E-mail address is not valid.',
-        5: '<i class="fa fa-warning"></i> E-mail address is not valid.'
+        0: '<i class="fa fa-check"></i> Espero responde-lo(a) rápido! ',
+        1: '<i class="fa fa-warning"></i> Você tem que colocar um E-mail válido.',
+        2: '<i class="fa fa-warning"></i> Endereço de E-mail não válido.',
+        3: '<i class="fa fa-warning"></i> Endereço de E-mail não válido.',
+        4: '<i class="fa fa-warning"></i> Endereço de E-mail não válido.',
+        5: '<i class="fa fa-warning"></i> Endereço de E-mail não válido.'
     };
     function videoint() {
         //   Video------------------
