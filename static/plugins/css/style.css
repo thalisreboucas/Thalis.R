@@ -5444,32 +5444,7 @@ section.parallax-section .section-title:before {
 .share-icon-stumbleupon:after {
 	content: "stumbleupon";
 }
-/*-------------Map contacts---------------------------------------*/
-.map-container {
-	float: left;
-	width: 100%;
-	position: relative;
-	overflow: hidden;
-}
-.fw-map-container #singleMap {
-	width: 100%;
-	position: relative;
-	height: 400px;
-	float: left;
-}
-.fw-map-container.ful-height-map,
-.fw-map-container.ful-height-map #singleMap {
-	height: 100%;
-}
-.big-single-map.fw-map-container #singleMap {
-	height: 500px;
-}
-.box-widget #singleMap {
-	margin-bottom: 10px;
-}
-.fw-map-container {
-	z-index: 8;
-}
+
 .custom-form {
 	float: left;
 	width: 100%;
