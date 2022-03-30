@@ -652,12 +652,11 @@
                                     <div class="col-md-6">
                                         <div id="contact-form">
                                             <div id="message"></div>
-                                            <form  class="custom-form" action="plugins/js/script.js" name="contactform" id="contactform">
+                                            <form  class="custom-form" action="php/contact.php" name="contactform" id="contactform" method="POST" data-netlify="true">
                                                 <fieldset>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label><i class="fal fa-user"></i></label>
-                                                            <form name="contact" method="POST" data-netlify="true">
                                                             <input type="text" name="name" id="name" placeholder="Seu Nome*" value=""/>
                                                         </div>
                                                         <div class="col-md-6">
@@ -674,7 +673,7 @@
                                                     </div>
                                                     <textarea name="comments"  id="comments" cols="40" rows="3" placeholder="Sua mensagem:"></textarea>
                                                     <div class="clearfix"></div>
-                                                    <button class="btn float-btn flat-btn color-btn" id="submit">Enviar Mensagem</button> </form> 
+                                                    <button class="btn float-btn flat-btn color-btn" id="submit">Enviar Mensagem</button> 
                                                 </fieldset>
                                             </form>
                                         </div>

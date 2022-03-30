@@ -558,7 +558,7 @@ function initSolonick() {
     });
     $('.chosen-select').selectbox();
     $.ajaxChimp.translations.eng = {
-        submit: "Submitting...",
+        submit: "Enviando...",
         0: '<i class="fa fa-check"></i> Espero responde-lo(a) rápido! ',
         1: '<i class="fa fa-warning"></i> Você tem que colocar um E-mail válido.',
         2: '<i class="fa fa-warning"></i> Endereço de E-mail não válido.',
