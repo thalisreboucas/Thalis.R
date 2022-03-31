@@ -566,7 +566,7 @@ function initSolonick() {
         4: '<i class="fa fa-warning"></i> Endereço de E-mail não válido.',
         5: '<i class="fa fa-warning"></i> Endereço de E-mail não válido.'
     };
-    function videoint() {
+function videoint() {
         //   Video------------------
         var v = $(".background-youtube-wrapper").data("vid");
         var f = $(".background-youtube-wrapper").data("mv");
