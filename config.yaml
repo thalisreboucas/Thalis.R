@@ -1,3 +1,16 @@
 baseURL: http://thalis.netlify.app/home
 languageCode: pt-br
 title: Thalis Rebouças
+
+ignoreFiles:
+  - \.Rmd$
+  - \.Rmarkdown$
+  - _cache$
+  - \.knit\.md$
+  - \.utf8\.md$
+
+permalinks:
+  post: /:year/:month/:day/:slug/
+
+
+
