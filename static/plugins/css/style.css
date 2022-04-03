@@ -111,7 +111,7 @@ body {
 	overflow: hidden;
 	max-width: 0;
 	text-align: left;
-	animation: pinanim 4.2s ease-out infinite;
+	animation: pinanim 1.2s ease-out infinite;
 }
 @keyframes pinanim {
 	0% {
