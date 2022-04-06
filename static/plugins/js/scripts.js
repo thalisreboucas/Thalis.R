@@ -620,7 +620,7 @@ function videoint() {
     videoint();
     // Share   ------------------
     $(".share-container").share({
-        networks: ['instagram', 'facebook', 'spotify', 'twitter', 'linkedin']
+        networks: ['facebook', 'pinterest', 'googleplus', 'twitter', 'linkedin']
     });
     var shrcn = $(".share-wrapper"),
         ssb = $(".showshare");
