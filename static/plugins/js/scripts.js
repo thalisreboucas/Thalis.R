@@ -618,27 +618,6 @@ function videoint() {
         }
     }
     videoint();
-    // Share   ------------------
-    $(".share-container").share({
-        networks: ['facebook', 'pinterest', 'googleplus', 'twitter', 'linkedin']
-    });
-    var shrcn = $(".share-wrapper"),
-        ssb = $(".showshare");
-    function showShare() {
-        hideMenu();
-        shrcn.fadeIn(1).removeClass("isShare").addClass("invis-share");
-        $(".share-title span").shuffleLetters({});
-        ssb.addClass("clshbt");
-        setTimeout(function () {
-            $(".soa").each(function (a) {
-                var b = $(this);
-                setTimeout(function () {
-                    b.addClass("soavis")
-                }, 150 * a);
-            });
-
-        }, 300);
-    }
     function hideShare() {
         shrcn.fadeOut(400).addClass("isShare").removeClass("invis-share");
         $(".soa").removeClass("soavis");

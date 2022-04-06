@@ -5190,16 +5190,19 @@ section.parallax-section .section-title:before {
 	text-decoration: underline;
 }
 
-.share-icon-facebook:after {
+.share-icon-instagram:after {
 	content: "instagram";
 }
 .share-icon-twitter:after {
 	content: "twitter";
 }
-.share-icon-tumblr:after {
+.share-icon-youtube:after {
 	content: "youtube";
 }
-.share-icon-tumblr:after {
+.share-icon-linkedin:after {
+	content: "linkedin";
+}
+.share-icon-spotify:after {
 	content: "spotify";
 }
 
