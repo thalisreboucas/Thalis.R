@@ -538,7 +538,7 @@ function initSolonick() {
         $("#message").slideUp(750, function () {
             $("#message").hide();
             $("#submit").attr("disabled", "disabled");
-            $.post(a, {
+            $.post("php/contact.php",a("contactform"), {
                 name: $("#name").val(),
                 email: $("#email").val(),
                 subject: $('#subject').val(),
@@ -566,6 +566,7 @@ function initSolonick() {
         4: '<i class="fa fa-warning"></i> Endereço de E-mail não válido.',
         5: '<i class="fa fa-warning"></i> Endereço de E-mail não válido.'
     };
+    
 function videoint() {
         //   Video------------------
         var v = $(".background-youtube-wrapper").data("vid");
