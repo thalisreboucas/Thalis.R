@@ -538,7 +538,7 @@ function initSolonick() {
         $("#message").slideUp(750, function () {
             $("#message").hide();
             $("#submit").attr("disabled", "disabled");
-            $.post("php/contact.php",a("contactform"), {
+            $.post(a {
                 name: $("#name").val(),
                 email: $("#email").val(),
                 subject: $('#subject').val(),
