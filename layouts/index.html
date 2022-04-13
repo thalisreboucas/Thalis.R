@@ -592,27 +592,46 @@
                                   <!-- Image contact -->
                                    <div class="col-md-3"><img src="images/all/7.jpg" class="respimg" data-scrollax="properties: { translateY: '-170px' }" alt=""></div>
                                    <!-- end image -->
-                                    <div class="col-md-6">
+                                     <div class="col-md-6">
+                                        <div id="contactform">
                                             <div id="message"></div>
-                                            <form  class="custom-form" name="contactform" id="contactform" action="POST" data-netlify="true" role="form" >
+                                            <form  class="custom-form" action="php/contact.php" name="contact-form" id="contact-form">
                                                 <fieldset>
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <label><i class="fal fa-user"></i></label>
-                                                            <input type="text" name="name" id="name" placeholder="Seu Nome*" value=""/>
+                                                            <input type="text" name="name" id="name" placeholder="Your Name *" value=""/>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <label><i class="fal fa-envelope"></i> </label>
-                                                            <input type="email"  name="email" id="email" placeholder="Seu Endereço de Email *" value=""/>
+                                                            <input type="text"  name="email" id="email" placeholder="Email Address *" value=""/>
                                                         </div>
                                                         <div class="col-md-6">
-                                                           <label><i class="fal fa-comment" aria-hidden="true"></i> </label>
-                                                            <input type="text" name="subject" id="subject" placeholder="Assunto*" value=""/>
+                                                            <label><i class="fal fa-mobile-android"></i> </label>
+                                                            <input type="text"  name="phone" id="phone" placeholder="Phone *" value=""/>
                                                         </div>
-                                                    
-                                                    <textarea  name="comments"  id="comments" cols="40" rows="3" placeholder="Sua mensagem:"></textarea>
+                                                        <div class="col-md-6">
+                                                            <select name="subject" id="subject" data-placeholder="Subject" class="chosen-select sel-dec">
+                                                                <option>Subject</option>
+                                                                <option value="Order Project">Order Project</option>
+                                                                <option value="Support">Support</option>
+                                                                <option value="Other Question">Other Question</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <textarea name="comments"  id="comments" cols="40" rows="3" placeholder="Your Message:"></textarea>
+                                                    <div class="verify-wrap">
+                                                        <span class="verify-text"> How many gnomes were in the story about the "Snow-white" ?</span> 
+                                                        <select name="verify" id="verify" data-placeholder="0" class="chosen-select">
+                                                            <option>0</option>
+                                                            <option value="9">9</option>
+                                                            <option value="5">5</option>
+                                                            <option value="7">7</option>
+                                                            <option value="2">2</option>
+                                                        </select>
+                                                    </div>
                                                     <div class="clearfix"></div>
-                                                    <button class="btn float-btn flat-btn color-btn" id="submit">Enviar Mensagem</button> 
+                                                    <button class="btn float-btn flat-btn color-btn" id="submit">Send Message</button>
                                                 </fieldset>
                                             </form>
                                         </div>
@@ -647,8 +666,6 @@
                                     <!-- footer-box-->
                                     <div class="footer-box fl-wrap">
                                         <p>Caso queirar falar comigo é só mandar um email que irei tentar responder o mais rápido possível,mas não garanto nada ;).</p>
-                                        <div class="subcribe-form fl-wrap">
-                                        </div>
                                         <!-- footer-contacts-->
                                         <div class="footer-contacts fl-wrap">
                                             <ul>
