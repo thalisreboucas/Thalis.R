@@ -533,7 +533,7 @@ function initSolonick() {
         twitterFetcher.fetch(config1);
     }
 //   Contact form------------------
-    $("#contactform").submit(function () {
+    $("#contact-form").submit(function () {
         var a = $(this).attr("action");
         $("#message").slideUp(750, function () {
             $("#message").hide();
@@ -548,12 +548,12 @@ function initSolonick() {
                 document.getElementById("message").innerHTML = a;
                 $("#message").slideDown("slow");
                 $("#submit").removeAttr("disabled");
-                if (null != a.match("success")) $("#contactform").slideDown("slow");
+                if (null != a.match("success")) $("#contact-form").slideDown("slow");
             });
         });
         return false;
     });
-    $("#contactform input, #contact-form textarea").keyup(function () {
+    $("#contact-form input, #contact-form textarea").keyup(function () {
         $("#message").slideUp(1500);
     });
    g = {
