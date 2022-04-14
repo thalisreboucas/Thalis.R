@@ -541,10 +541,8 @@ function initSolonick() {
             $.post("php/contact.php",a, {
                 name: $("#name").val(),
                 email: $("#email").val(),
-                phone: $("#phone").val(),
                 subject: $('#subject').val(),
                 comments: $("#comments").val(),
-                verify: $('#verify').val()
 
             }, function (a) {
                 document.getElementById("message").innerHTML = a;
@@ -555,7 +553,7 @@ function initSolonick() {
         });
         return false;
     });
-    $("#contactform input, #contact-form textarea").keyup(function () {
+    $("#contact-form input, #contact-form textarea").keyup(function () {
         $("#message").slideUp(1500);
     });
    g = {
