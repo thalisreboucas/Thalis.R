@@ -548,7 +548,7 @@ function initSolonick() {
                 document.getElementById("message").innerHTML = a;
                 $("#message").slideDown("slow");
                 $("#submit").removeAttr("disabled");
-                if (null != a.match("success")) $("#contactform").slideDown("slow");
+                if (null != a.match("success")) $("#contact-form").slideDown("slow");
             });
         });
         return false;
