@@ -533,7 +533,7 @@ function initSolonick() {
         twitterFetcher.fetch(config1);
     }
 //   Contact form------------------
-    $("#contact-form").submit(function () {
+    $("#contactform").submit(function () {
         var a = $(this).attr("action");
         $("#message").slideUp(750, function () {
             $("#message").hide();
@@ -541,31 +541,23 @@ function initSolonick() {
             $.post("php/contact.php",a, {
                 name: $("#name").val(),
                 email: $("#email").val(),
-                phone: $("#phone").val(),
                 subject: $('#subject').val(),
-                comments: $("#comments").val(),
-                verify: $('#verify').val()
+                comments: $("#comments").val()
 
             }, function (a) {
                 document.getElementById("message").innerHTML = a;
                 $("#message").slideDown("slow");
                 $("#submit").removeAttr("disabled");
-                if (null != a.match("success")) $("#contact-form").slideDown("slow");
+                if (null != a.match("success")) $("#contactform").slideDown("slow");
             });
         });
         return false;
     });
-    $("#contact-form input, #contact-form textarea").keyup(function () {
+    $("#contactform input, #contact-form textarea").keyup(function () {
         $("#message").slideUp(1500);
     });
-    $('.chosen-select').selectbox();
-    //   mailchimp------------------
-    $("#subscribe").ajaxChimp({
-        language: "eng",
-        url: "https://gmail.us1.list-manage.com/subscribe/post?u=1fe818378d5c129b210719d80&amp;id=a2792f681b"
-    });
-    $.ajaxChimp.translations.eng = {
-        submit: "Submitting...",
+   g = {
+        submit: "Enviando...",
         0: '<i class="fa fa-check"></i> We will be in touch soon!',
         1: '<i class="fa fa-warning"></i> You must enter a valid e-mail address.',
         2: '<i class="fa fa-warning"></i> E-mail address is not valid.',
