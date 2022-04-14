@@ -556,15 +556,15 @@ function initSolonick() {
     $("#contact-form input, #contact-form textarea").keyup(function () {
         $("#message").slideUp(1500);
     });
-   g = {
+    g = {
         submit: "Enviando...",
-        0: '<i class="fa fa-check"></i> Eu irei entrar em contator quando possível!',
-        1: '<i class="fa fa-warning"></i> Colocar um email válido .-. ',
-        2: '<i class="fa fa-warning"></i> E-mail não válido.',
-        3: '<i class="fa fa-warning"></i> E-mail não válido..',
-        4: '<i class="fa fa-warning"></i> E-mail não válido...',
-        5: '<i class="fa fa-warning"></i> E-mail não válido.........'
-    };
+        0: '<i class="fa fa-check"></i> We will be in touch soon!',
+        1: '<i class="fa fa-warning"></i> You must enter a valid e-mail address.',
+        2: '<i class="fa fa-warning"></i> E-mail address is not valid.',
+        3: '<i class="fa fa-warning"></i> E-mail address is not valid.',
+        4: '<i class="fa fa-warning"></i> E-mail address is not valid.',
+        5: '<i class="fa fa-warning"></i> E-mail address is not valid.'
+  };
 function videoint() {
         //   Video------------------
         var v = $(".background-youtube-wrapper").data("vid");
