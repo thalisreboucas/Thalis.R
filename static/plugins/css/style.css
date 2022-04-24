@@ -71,40 +71,153 @@ body {
 
 /*------------- Point Cursor ---------------------------------------*/
 
-.pointer {
-    position: fixed;
-    top: 50%;
-    left: -100px;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    width: 10px;
-    height: 10px;
-    pointer-events: none;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    z-index: 9999;
-    -webkit-transition-property: width, height, background;
-    -o-transition-property: width, height, background;
-    transition-property: width, height, background;
-    -webkit-transition-duration: .5s;
-    -o-transition-duration: .5s;
-    transition-duration: .5s;
-    -webkit-transition-timing-function: cubic-bezier(.19, .94, .336, 1);
-    -o-transition-timing-function: cubic-bezier(.19, .94, .336, 1);
-    transition-timing-function: cubic-bezier(.19, .94, .336, 1);
-    border-radius: 50%;
-    background: #ef0d33;
-    overflow: hidden;
-}
-
 * {
-    cursor: none;
+	cursor: none;
 }
 
-::selection {
-    background: none;
-    color: #ef0d33;
+.pointer {
+	position: fixed;
+	top: 50%;
+	left: -100px;
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+	width: 10px;
+	height: 10px;
+	pointer-events: none;
+	-webkit-box-sizing: border-box;
+	    box-sizing: border-box;
+	z-index: 9999;
+	-webkit-transition-property: width, height, background;
+		-o-transition-property: width, height, background;
+			transition-property: width, height, background;
+	-webkit-transition-duration: .5s;
+	    -o-transition-duration: .5s;
+	        transition-duration: .5s;
+	-webkit-transition-timing-function: cubic-bezier(.19, .94, .336, 1);
+	    -o-transition-timing-function: cubic-bezier(.19, .94, .336, 1);
+	        transition-timing-function: cubic-bezier(.19, .94, .336, 1);
+	border-radius: 50%;
+	background: #ef0d33;
+	overflow: hidden;
+}
+
+body.out .pointer {
+	width: 0;
+	height: 0;
+}
+
+.pointer.large {
+	width: 65px;
+	height: 65px;
+	background: rgba(239,13,51,.15);
+	-webkit-box-shadow: 0 0 30px rgba(239,13,51, 0.8);
+	    box-shadow: 0 0 30px rgba(239,13,51, 0.8);
+}
+
+.pointer.small {
+	width: 25px;
+	height: 25px;
+	background: rgba(239,13,51,0);
+	-webkit-box-shadow: 0 0 30px #ef0d33;
+	    box-shadow: 0 0 30px #ef0d33;
+}
+
+.pointer.right {
+	width: 70px;
+	height: 70px;
+	background: rgba(239,13,51,0);
+	border: 2px solid #ef0d33;
+}
+
+.pointer.zoom,
+.pointer.open {
+	width: 80px;
+	height: 80px;
+	background: rgba(239,13,51,0);
+	border: 2px solid #ef0d33;
+}
+
+.pointer .fa-long-arrow-alt-right,
+.pointer .fa-search,
+.pointer .fa-link {
+	color: #ef0d33;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-100%, -50%);
+	    -ms-transform: translate(-100%, -50%);
+	        transform: translate(-100%, -50%);
+	opacity: 0;
+	-webkit-transition: .4s cubic-bezier(.225, 1, .316, .99);
+		-o-transition: .4s cubic-bezier(.225, 1, .316, .99);
+			transition: .4s cubic-bezier(.225, 1, .316, .99);
+}
+
+.pointer .fa-search, 
+.pointer .fa-link {
+	-webkit-transform: translate(-50%, -50%) scale(0);
+	    -ms-transform: translate(-50%, -50%) scale(0);
+	        transform: translate(-50%, -50%) scale(0);
+}
+
+.pointer.right .fa-long-arrow-alt-right {
+	opacity: 1;
+	-webkit-transform: translate(-50%, -50%);
+	    -ms-transform: translate(-50%, -50%);
+	        transform: translate(-50%, -50%);
+	-webkit-transition-delay: .2s;
+	    -o-transition-delay: .2s;
+	    	transition-delay: .2s;
+}
+
+.pointer.zoom .fa-search,
+.pointer.open .fa-link  {
+	opacity: 1;
+	-webkit-transform: translate(-50%, -50%) scale(1);
+	    -ms-transform: translate(-50%, -50%) scale(1);
+	        transform: translate(-50%, -50%) scale(1);
+	-webkit-transition-delay: .2s;
+	    -o-transition-delay: .2s;
+	    	transition-delay: .2s;
+}
+
+.pointer.black {
+	background: #1b2a2f;
+}
+
+.pointer.black.large {
+	background: rgba(27,42,47,.4);
+	-webkit-box-shadow: 0 0 30px black;
+	    box-shadow: 0 0 30px black;
+}
+
+.pointer.black.small {
+	background: rgba(27,42,47,.5);
+	-webkit-box-shadow: 0 0 30px black;
+	    box-shadow: 0 0 30px black;
+}
+
+.pointer.black.right {
+	background: rgba(27,42,47,0);
+	border: 2px solid #1b2a2f;
+}
+
+.pointer.black.zoom,
+.pointer.black.open {
+	background: rgba(27,42,47,0);
+	border: 2px solid #1b2a2f;
+}
+
+.pointer.black .fa-long-arrow-alt-right,
+.pointer.black .fa-search,
+.pointer.black .fa-link {
+	color: #1b2a2f;
+}
+
+.touch .pointer {
+	display: none;
 }
 
 
