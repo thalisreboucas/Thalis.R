@@ -67,7 +67,45 @@ body {
     background: #323232;
 }
 
+/*-------------Scroll-Bar End ---------------------------------------*/
 
+/*------------- Point Cursor ---------------------------------------*/
+
+.pointer {
+    position: fixed;
+    top: 50%;
+    left: -100px;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    z-index: 9999;
+    -webkit-transition-property: width, height, background;
+    -o-transition-property: width, height, background;
+    transition-property: width, height, background;
+    -webkit-transition-duration: .5s;
+    -o-transition-duration: .5s;
+    transition-duration: .5s;
+    -webkit-transition-timing-function: cubic-bezier(.19, .94, .336, 1);
+    -o-transition-timing-function: cubic-bezier(.19, .94, .336, 1);
+    transition-timing-function: cubic-bezier(.19, .94, .336, 1);
+    border-radius: 50%;
+    background: #ef0d33;
+    overflow: hidden;
+}
+
+* {
+    cursor: none;
+}
+
+::selection {
+    background: none;
+    color: #ef0d33;
+}
 
 
 /* ---------Page preload--------------------------------------*/
