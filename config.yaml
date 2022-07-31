@@ -33,7 +33,7 @@ params:
       - link: plugins/js/plugins.js
       - link: plugins/js/scripts.js
       - link: //cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js
-      - link: plugins/js/ighlight.pack.js
+      - link: plugins/js/highlight.pack.js
      MathJaxVersion: 2.7.5
      highlightjsCDN: "//cdnjs.cloudflare.com/ajax/libs"
      highlightjsLang:
