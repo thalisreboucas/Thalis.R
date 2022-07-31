@@ -850,5 +850,4 @@ $(function () {
     initparallax();
     initSolonick();
     initajaxload ();
-    initmenuajaxdisable ();
 });
