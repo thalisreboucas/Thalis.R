@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
        {{ "<!-- JS Plugins -->" | safeHTML }}
           {{ range site.Params.plugins.js}}
-        <script type="text/js" src="{{ .link | absURL }}"></script>
+        <script src="{{ .link | absURL }}"></script>
           {{ end }}
         <!--=============== css  ===============-->
         <link type="text/css" rel="stylesheet" href="plugins/css/reset.css">
