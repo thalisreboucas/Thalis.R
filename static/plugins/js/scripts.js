@@ -812,9 +812,43 @@ function initparallax() {
 document.addEventListener('gesturestart', function (e) {
     e.preventDefault();
 }); 
- 
+
+//   clone ------------------
+jQuery.fn.duplicate = function (a, b) {
+    var c = [];
+    for (var d = 0; d < a; d++) jQuery.merge(c, this.clone(b).get());
+    return this.pushStack(c);
+};
+jQuery("<span class='folio-btn-dot'></span>").duplicate(9).appendTo(".folio-btn-item");
+//   Init Ajax------------------
+jQuery(function () {
+    jQuery.coretemp({
+        reloadbox: "#wrapper",
+        outDuration: 700,
+        inDuration: 200
+    });
+    readyFunctions();
+    jQuery(document).on({
+        ksctbCallback: function () {
+            readyFunctions();
+        }
+    });
+});
+
+function initajaxload () {
+}
+function inittitlereplace () {
+}
+function initmenuajaxdisable () {
+	jQuery(".menu-item-has-children > a").each(function(i){
+	jQuery(this).removeClass('ajax');
+	})
+}
+
 //   Init All ------------------
 $(function () {
     initparallax();
     initSolonick();
+    initajaxload ();
+    initmenuajaxdisable ();
 });
