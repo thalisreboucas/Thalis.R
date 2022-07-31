@@ -102,13 +102,16 @@
                             <!-- filter tag   -->
                             <div class="tag-filter blog-btn-filter">
                                 <div class="blog-btn">Tags <i class="fa fa-tags" aria-hidden="true"></i></div>
-                                <ul>
-                                    <li><a href="#">Gallery</a></li>
-                                    <li><a href="#">People</a></li>
-                                    <li><a href="#">Nature</a></li>
-                                    <li><a href="#">Comercial</a></li>
-                                    <li><a href="#">Travel</a></li>
-                                </ul>
+                                 {{- if isset site.Taxonomies "tags" }}
+                                    {{- if not (eq (len site.Taxonomies.tags) 0) }}
+                                              <ul class="list-unstyled widget-list">
+                                                {{- range $name, $items := site.Taxonomies.tags }}
+                                              <li><a href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}">
+                                     {{ $name | humanize }}&nbsp;&nbsp;({{ len $items }})</a></li>
+                                   {{- end }}
+                                       </ul>
+                                {{- end }}
+                              {{- end }}
                             </div>
                             <!-- filter tag end  -->
                             <!-- filter category    -->
@@ -150,17 +153,25 @@
                                             <div class="blog-media fl-wrap nomar-bottom">
                                                 <div class="single-slider-wrap slider-carousel-wrap ">
                                                     <div class="single-slider cur_carousel-slider-container fl-wrap"  >
-                                                        <div class="slick-slide-item"><img src="images/folio/2.jpg" alt=""></div>
-                                                        <div class="slick-slide-item"><img src="images/folio/9.jpg" alt=""></div>
-                                                        <div class="slick-slide-item"><img src="images/folio/8.jpg" alt=""></div>
+                                                        <div class="slick-slide-item"><img src="../../../../images/folio/2.jpg" alt=""></div>
+                                                        <div class="slick-slide-item"><img src="../../../../images/folio/9.jpg" alt=""></div>
+                                                        <div class="slick-slide-item"><img src="../../../../images/folio/8.jpg" alt=""></div>
                                                     </div>
                                                     <div class="sp-cont   sp-cont-prev"><i class="fal fa-long-arrow-left"></i></div>
                                                     <div class="sp-cont   sp-cont-next"><i class="fal fa-long-arrow-right"></i></div>
                                                 </div>
                                             </div>
                                             <!-- blog media end -->
-                                            <div class="parallax-header fl-wrap"><span>Tags : </span><a href="#">Branding</a> <a href="#">Video</a>  <a href="#">Design</a></div>
-                                            <div class="blog-text fl-wrap">
+                                            <div class="parallax-header fl-wrap">
+                                               {{ with .Params.tags }}
+                                              <span>Tags : </span>
+                                              {{range $i,$e:= . }}{{if ne $i 0}},{{end}}
+                                              <a href="{{`tags` | absLangURL}}/{{.|urlize | lower}}">
+                                                {{.|title}}</a> 
+                                                  {{ end }}
+                                              </div>
+                                                {{ end }}
+                   <div class="blog-text fl-wrap">
                                                 <div class="clearfix"></div>
                                                 <h3><a href="blog-single.html" >{{.Content}}
                                                 <ul class="post-counter single-post-counter">
@@ -216,36 +227,16 @@
                                             <!-- widget-wrap end  -->   
                                             <!-- widget-wrap -->
                                             <div class="widget-wrap fl-wrap">
-                                                <h4 class="widget-title"><span>02.</span> Last Posts</h4>
+                                                <h4 class="widget-title"><span>02.</span>Outras Postagens</h4>
                                                 <div class="widget-container fl-wrap">
                                                     <div class="widget-posts fl-wrap">
                                                         <ul>
                                                             <li class="clearfix">
-                                                                <a href="#"  class="widget-posts-img"><img src="images/folio/1.jpg" class="respimg" alt=""></a>
+                                                              {{ if .Params.image }}
+                                                                <a href="#"  class="widget-posts-img"><img src="{{.Params.image | absURL}}" class="respimg" alt=""></a>  {{ end }}
                                                                 <div class="widget-posts-descr">
-                                                                    <a href="#" title="">Vivamus dapibus rutrum</a>
-                                                                    <span class="widget-posts-date"> 21 Mar 09.05 </span> 
-                                                                </div>
-                                                            </li>
-                                                            <li class="clearfix">
-                                                                <a href="#"  class="widget-posts-img"><img src="images/folio/2.jpg" class="respimg" alt=""></a>
-                                                                <div class="widget-posts-descr">
-                                                                    <a href="#" title=""> In hac habitasse platea</a>
-                                                                    <span class="widget-posts-date"> 7 Mar 18.21 </span> 
-                                                                </div>
-                                                            </li>
-                                                            <li class="clearfix">
-                                                                <a href="#"  class="widget-posts-img"><img src="images/folio/4.jpg" class="respimg" alt=""></a>
-                                                                <div class="widget-posts-descr">
-                                                                    <a href="#" title="">Tortor tempor in porta</a>
-                                                                    <span class="widget-posts-date"> 7 Mar 16.42 </span>
-                                                                </div>
-                                                            </li>
-                                                            <li class="clearfix">
-                                                                <a href="#"  class="widget-posts-img"><img src="images/folio/5.jpg" class="respimg" alt=""></a>
-                                                                <div class="widget-posts-descr">
-                                                                    <a href="#" title="">Praesent aliquet tortor</a>
-                                                                    <span class="widget-posts-date"> 2 Mar 14.42 </span>
+                                                                    <a href="{{ .Permalink }}" title="">{{.Title}}</a>
+                                                                    <span class="widget-posts-date"> {{ .PublishDate.Format "02/01/2006" }} </span> 
                                                                 </div>
                                                             </li>
                                                         </ul>
@@ -257,14 +248,16 @@
                                             <div class="widget-wrap fl-wrap">
                                                 <h4 class="widget-title"><span>03.</span> Tags</h4>
                                                 <div class="widget-container fl-wrap">
+                                                 {{- if isset site.Taxonomies "tags" }}
+                                                 {{- if not (eq (len site.Taxonomies.tags) 0) }}
                                                     <ul class="tagcloud">
-                                                        <li><a href='#' class="transition link">Portfolio</a></li>
-                                                        <li><a href='#' class="transition link">Tag</a></li>
-                                                        <li><a href='#' class="transition link">Demo</a></li>
-                                                        <li><a href='#' class="transition link">Blog</a></li>
-                                                        <li><a href='#' class="transition link">Photography</a></li>
-                                                        <li><a href='#' class="transition link">Web desighn</a></li>
-                                                    </ul>
+                                                       {{- range $name, $items := site.Taxonomies.tags }}
+                                                         <li><a href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}">
+                                                           {{ $name | humanize }}</a></li>
+                                                               {{- end }}
+                                                            </ul>
+                                                       {{- end }}
+                                                   {{- end }}
                                                 </div>
                                             </div>
                                             <!-- widget-wrap end  -->                                                 
