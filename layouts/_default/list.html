@@ -164,7 +164,14 @@
                                                 {{ $paginator:= .Paginate .Data.Pages }}
                                                 {{ range $paginator.Pages }}
                                             <h2><a href="{{ .Permalink }}"><span>{{.Title}}</span></a></h2>
-                                            <div class="parallax-header"> <a href="#">10/04/2022</a><span>Categoria : </span><a href="#">Machine Learning</a> </div>
+                                            <div class="parallax-header"> <a href="#">
+                                            {{ .PublishDate.Format "02/01/2006" }}</a>
+                                             {{ with .Params.categories }}
+                                            <span>Categoria : </span>
+                                            <a href="{{`categories` | absLangURL}}/{{.|urlize | lower}}">
+                                             {{ . }}</a> 
+                                            </div>
+                                          {{ end }}
                                             <!-- blog media -->
                                             <div class="blog-media fl-wrap">
                                                {{ if .Params.image }} 
@@ -172,9 +179,16 @@
                                             </div>
                                                 
                                             <!-- blog media end -->
-                                            <div class="parallax-header fl-wrap"><span>Tags : </span><a href="#">Branding</a> <a href="#">Video</a>  <a href="#">Design</a></div>
-                                            <div class="blog-text fl-wrap">
-                                                <div class="clearfix"></div>
+                                          {{ with .Params.tags }}
+                                            <div class="parallax-header fl-wrap">
+                                             <span>Tags : </span>
+                                             {{range $i,$e:= . }}{{if ne $i 0}},{{end}}
+                                            <a href="{{`tags` | absLangURL}}/{{.|urlize | lower}}">{{.|title}}</a>  
+                                               {{ end }}
+                                              </div>
+                                            {{ end }}
+                                          <div class="blog-text fl-wrap">
+                                               <div class="clearfix"></div>
                                                 <h3><a href="blog-single.html" >{{.Title}} </a></h3>
                                                 <p>
                                                     {{.Summary}}
@@ -210,17 +224,18 @@
                                                 </div>
                                             </div>
                                             <!-- widget-wrap end  -->   
-                                            <!-- widget-wrap -->
+                                                                                       <!-- widget-wrap -->
                                             <div class="widget-wrap fl-wrap">
-                                                <h4 class="widget-title"><span>02.</span> Últimos posts</h4>
+                                                <h4 class="widget-title"><span>02.</span>Outras Postagens</h4>
                                                 <div class="widget-container fl-wrap">
                                                     <div class="widget-posts fl-wrap">
                                                         <ul>
                                                             <li class="clearfix">
-                                                                <a href="#"  class="widget-posts-img"><img src="../images/folio/1.jpg" class="respimg" alt=""></a>
+                                                              {{ if .Params.image }}
+                                                                <a href="#"  class="widget-posts-img"><img src="{{.Params.image | absURL}}" class="respimg" alt=""></a>  {{ end }}
                                                                 <div class="widget-posts-descr">
-                                                                    <a href="#" title="">Vivamus dapibus rutrum</a>
-                                                                    <span class="widget-posts-date"> 21 Mar 09.05 </span> 
+                                                                    <a href="{{ .Permalink }}" title="">{{.Title}}</a>
+                                                                    <span class="widget-posts-date"> {{ .PublishDate.Format "02/01/2006" }} </span> 
                                                                 </div>
                                                             </li>
                                                         </ul>
@@ -228,6 +243,38 @@
                                                 </div>
                                             </div>
                                             <!-- widget-wrap end  --> 
+                                            <!-- widget-wrap -->
+                                            <div class="widget-wrap fl-wrap">
+                                                <h4 class="widget-title"><span>03.</span> Tags</h4>
+                                                <div class="widget-container fl-wrap">
+                                                 {{- if isset site.Taxonomies "tags" }}
+                                                 {{- if not (eq (len site.Taxonomies.tags) 0) }}
+                                                    <ul class="tagcloud">
+                                                       {{- range $name, $items := site.Taxonomies.tags }}
+                                                         <li><a href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}">
+                                                           {{ $name | humanize }}</a></li>
+                                                               {{- end }}
+                                                            </ul>
+                                                       {{- end }}
+                                                   {{- end }}
+                                                </div>
+                                            </div>
+                                            <!-- widget-wrap end  -->                                                 
+                                            <!-- widget-wrap -->
+                                            <div class="widget-wrap fl-wrap">
+                                                <h4 class="widget-title"><span>04.</span> Categorias</h4>
+                                                {{- if isset site.Taxonomies "categories" }}
+                                                 {{- if not (eq (len site.Taxonomies.categories) 0) }}
+                                                <div class="widget-container fl-wrap">
+                                                  {{- range $name, $items := site.Taxonomies.categories }}
+                                                    <ul class="cat-item">
+                                                        <li><a href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | humanize }}</a> <span>(&nbsp;&nbsp;{{ len $items }})</span></li>{{- end }}
+                                                    </ul>
+                                                      {{- end }}
+                                                   {{- end }}
+                                                </div>
+                                            </div>
+                                            <!-- widget-wrap end  -->      
                                         </div>
                                     </div>
                                     <!-- blog-sidebar end -->

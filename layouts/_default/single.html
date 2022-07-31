@@ -185,6 +185,16 @@
                                                 <h3><a href="" >{{.Content}}
                                             </div>
                                         </div>
+                                    <div class="col-lg-12 col-sm-6 col-8">
+                                     <script src="https://utteranc.es/client.js"
+                                        repo="thalisreboucas/Thalis.R"
+                                           issue-term="pathname"
+                                            label="Comentário "
+                                             theme="github-dark"
+                                           crossorigin="anonymous"
+                                       async>
+                                      </script>
+                                    </div>
                                         <!-- post end-->
                                     </div>
                                     <!-- blog-sidebar  -->
@@ -216,6 +226,8 @@
                                                 <h4 class="widget-title"><span>02.</span>Outras Postagens</h4>
                                                 <div class="widget-container fl-wrap">
                                                     <div class="widget-posts fl-wrap">
+                                                       {{ $related := (where site.RegularPages "Section" "blog") | intersect (where site.Pages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) }}
+                                                {{ range last 3 $related }}
                                                         <ul>
                                                             <li class="clearfix">
                                                               {{ if .Params.image }}
@@ -226,6 +238,7 @@
                                                                 </div>
                                                             </li>
                                                         </ul>
+                                                      {{ end }}
                                                     </div>
                                                 </div>
                                             </div>
@@ -261,8 +274,7 @@
                                                    {{- end }}
                                                 </div>
                                             </div>
-                                            <!-- widget-wrap end  -->                                                                                                                                          
-                                        </div>
+                                            <!-- widget-wrap end  -->                                                                    </div>
                                     </div>
                                     <!-- blog-sidebar end -->
                                     <div class="limit-box fl-wrap"></div>
@@ -270,11 +282,11 @@
                                 <!-- content-nav -->
                                 <div class="content-nav">
                                     <ul>
-                                        <li><a href="blog.html" class="ln"><i class="fal fa-arrow-left"></i><span class="tooltip">Ante - Pag 1</span></a></li>
+                                        <li><a href="blog.html" class="ln"><i class="fal fa-arrow-left"></i><span class="tooltip">Anterior - Página 1</span></a></li>
                                         <li>
                                             <span class="cur-page"><span>Página 2</span></span>
                                         </li>
-                                        <li><a href="post" class="rn"><i class="fal fa-arrow-right"></i><span class="tooltip">Prox - Pag 2 </span></a></li>
+                                        <li><a href="post" class="rn"><i class="fal fa-arrow-right"></i><span class="tooltip">Próxima - Página 2 </span></a></li>
                                     </ul>
                                 </div>
                                 <!-- content-nav end-->     
