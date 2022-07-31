@@ -117,13 +117,16 @@
                             <!-- filter category    -->
                             <div class="category-filter blog-btn-filter">
                                 <div class="blog-btn">Categorias <i class="fa fa-list-ul" aria-hidden="true"></i></div>
-                                <ul>
-                                    <li><a href="#">Gallery</a></li>
-                                    <li><a href="#">People</a></li>
-                                    <li><a href="#">Nature</a></li>
-                                    <li><a href="#">Comercial</a></li>
-                                    <li><a href="#">Travel</a></li>
+                                {{- if isset site.Taxonomies "categories" }}
+                                    {{- if not (eq (len site.Taxonomies.categories) 0) }}
+                                <ul class="list-unstyled widget-list">
+                                                {{- range $name, $items := site.Taxonomies.categories }}
+                                              <li><a href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}">
+                                     {{ $name | humanize }}&nbsp;&nbsp;({{ len $items }})</a></li>
+                                   {{- end }}
                                 </ul>
+                               {{- end }}
+                              {{- end }}
                             </div>
                             <!-- filter category end  -->
                             <div class="blog-search">
@@ -263,23 +266,16 @@
                                             <!-- widget-wrap end  -->                                                 
                                             <!-- widget-wrap -->
                                             <div class="widget-wrap fl-wrap">
-                                                <h4 class="widget-title"><span>04.</span>Our Instagram</h4>
+                                                <h4 class="widget-title"><span>04.</span> Categorias</h4>
+                                                {{- if isset site.Taxonomies "categories" }}
+                                                 {{- if not (eq (len site.Taxonomies.categories) 0) }}
                                                 <div class="widget-container fl-wrap">
-                                                    <div class='jr-insta-thumb' id="insta-content" data-instatoken="3980752.1677ed0.62bb6a2ad3ef4dc0a6aad768ab8939ab">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- widget-wrap end  -->                                              
-                                            <!-- widget-wrap -->
-                                            <div class="widget-wrap fl-wrap">
-                                                <h4 class="widget-title"><span>05.</span> Categories</h4>
-                                                <div class="widget-container fl-wrap">
+                                                  {{- range $name, $items := site.Taxonomies.categories }}
                                                     <ul class="cat-item">
-                                                        <li><a href="#">Standard</a> <span>(3)</span></li>
-                                                        <li><a href="#">Video</a> <span>(6) </span></li>
-                                                        <li><a href="#">Gallery</a> <span>(12) </span></li>
-                                                        <li><a href="#">Quotes</a> <span>(4)</span></li>
+                                                        <li><a href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}">{{ $name | humanize }}</a> <span>(&nbsp;&nbsp;{{ len $items }})</span></li>{{- end }}
                                                     </ul>
+                                                      {{- end }}
+                                                   {{- end }}
                                                 </div>
                                             </div>
                                             <!-- widget-wrap end  -->                                                                                                                                          
