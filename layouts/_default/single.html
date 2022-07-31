@@ -1,32 +1,36 @@
 <!DOCTYPE HTML>
 <html lang="en">
-    <head>
+    <head >
         <!--=============== basic  ===============-->
         <meta charset="UTF-8">
-        <title>Solonick - Creative Responsive Personal Portfolio</title>
+        <title>Blog - Thalis Rebouças</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="robots" content="index, follow"/>
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
         <!--=============== scripts  ===============-->
-        <script type="text/javascript" src="../lugins/js/jquery.min.js"></script>
-        <script type="text/javascript" src="../plugins/js/plugins.js"></script>
-        <script type="text/javascript" src="../plugins/js/scripts.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
-        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?..."></script>
+        {{ "<!-- JS Plugins -->" | safeHTML }}
+        {{ range site.Params.plugins.js}}
+        <script src="{{ .link | absURL }}"></script>
+        {{ end }}
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...">
+        </script>
         <!--=============== css  ===============-->
-        <link type="text/css" rel="stylesheet" href="../plugins/css/reset.css">
-        <link type="text/css" rel="stylesheet" href="../plugins/css/plugins.css">
-        <link type="text/css" rel="stylesheet" href="../plugins/css/style.css">
-        <link type="text/css" rel="stylesheet" href="../plugins/css/color.css">
+        <link type="text/css" rel="stylesheet" href="../../../../plugins/css/reset.css">
+        <link type="text/css" rel="stylesheet" href="../../../../plugins/css/plugins.css">
+        <link type="text/css" rel="stylesheet" href="../../../../plugins/css/style.css">
+        <link type="text/css" rel="stylesheet" href="../../../../plugins/css/color.css">
+        
+
         <!--=============== favicons ===============-->
-        <link rel="shortcut icon" href="../images/favicon.ico">
+        <link rel="shortcut icon" href="../../../../images/favicon.ico">
         <!--=============== font icons  google ===============-->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet " href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
     <body>
         <!--loader-->
-        <div class="loader-wrap">
+        <div class="loader-wrap " >
             <div class="pin"></div>
         </div>
         <!--loader end-->
@@ -34,8 +38,8 @@
         <div id="main">
             <!-- header-->
             <header class="main-header">
-                <a class="logo-holder" href="../index.html">
-                <img src="images/logo.png"  alt="">
+                <a class="logo-holder" href="../../../../index.html">
+                <img src="../../../../images/logo.png"  alt="">
                 </a>
                 <!-- nav-button-wrap-->
                 <div class="nav-button but-hol">
@@ -64,7 +68,7 @@
                 <div class="tooltip color-bg">Close Menu</div>
             </div>
             <div class="nav-holder">
-                <a class="header-logo" href="index.html"><img src="images/logo2.png" alt=""></a> 
+                <a class="header-logo" href="index.html"><img src="../../../../images/logo2.png" alt=""></a> 
                 <div class="nav-title"><span>Menu</span></div>
                 <div class="nav-inner-wrap">
                     <nav class="nav-inner sound-nav" id="menu">
@@ -131,7 +135,7 @@
                     <!-- section end-->  
                     <!-- section --> 
                     <section data-scrollax-parent="true" id="sec1">
-                        <div class="section-subtitle left-pos"  data-scrollax="properties: { translateY: '-250px' }" ><span>//</span>Post title</div>
+                        <div class="section-subtitle left-pos"  data-scrollax="properties: { translateY: '-250px' }" ><span>//</span>{{.Title | markdownify}}</div>
                         <div class="container">
                             <!-- blog-container  -->
                             <div class="fl-wrap post-container">
@@ -139,8 +143,8 @@
                                     <div class="col-md-8">
                                         <!-- post -->
                                         <div class="post fl-wrap fw-post">
-                                            <h2><a href="blog-single.html"><span>Blog post title</span></a></h2>
-                                            <div class="parallax-header"> <a href="#">27 may 2018</a><span>Category : </span><a href="#">Branding</a> <a href="#">Video</a> </div>
+                                            <h2><a href="blog-single.html"><span>{{.Title | markdownify}}</span></a></h2>
+                                            <div class="parallax-header"> <a href="#">{{ .PublishDate.Format "02/01/2006" }}</a><span>Category : </span><a href="#">Branding</a> <a href="#">Video</a> </div>
                                             <!-- blog media -->
                                             <div class="blog-media fl-wrap nomar-bottom">
                                                 <div class="single-slider-wrap slider-carousel-wrap ">
@@ -157,19 +161,7 @@
                                             <div class="parallax-header fl-wrap"><span>Tags : </span><a href="#">Branding</a> <a href="#">Video</a>  <a href="#">Design</a></div>
                                             <div class="blog-text fl-wrap">
                                                 <div class="clearfix"></div>
-                                                <h3><a href="blog-single.html" >Aliquip pertinax <strong>vix ad </strong></a></h3>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit. Quisque varius eros ac purus dignissim.
-                                                    Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit. Quisque varius eros ac purus dignissim.
-                                                </p>
-                                                <blockquote>
-                                                    <p> Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus. Donec auctor et urnaLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras lacinia magna vel molestie faucibus.Cras lacinia magna vel molestie faucibus.   </p>
-                                                </blockquote>
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare sem sed quam tempus aliquet vitae eget dolor. Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit. Quisque varius eros ac purus dignissim.
-                                                    Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit. Quisque varius eros ac purus dignissim.
-                                                </p>
-                                                <p>Quisque varius eros ac purus dignissim.
-                                                    Proin eu ultrices libero. Curabitur vulputate vestibulum elementum. Suspendisse id neque a nibh mollis blandit. Quisque varius eros ac purus dignissim.
-                                                </p>
+                                                <h3><a href="blog-single.html" >{{.Content}}
                                                 <ul class="post-counter single-post-counter">
                                                     <li><i class="fa fa-eye"></i><span>687</span></li>
                                                     <li><i class="fal fa-comments-alt"></i><span>10</span></li>

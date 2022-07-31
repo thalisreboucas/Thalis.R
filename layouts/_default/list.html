@@ -24,6 +24,7 @@
         <link rel="shortcut icon" href="../images/favicon.ico">
         <!--=============== font icons  google ===============-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        
     </head>
     <body>
         <!--loader-->
@@ -147,22 +148,28 @@
                                     <div class="col-md-8">
                                         <!-- post -->
                                         <div class="post fl-wrap fw-post">
-                                            <h2><a href="blog-single.html"><span>Título do Post</span></a></h2>
-                                            <div class="parallax-header"> <a href="#">10/04/2022</a><span>Categoria : </span><a href="#">Branding</a> <a href="#">Video</a> </div>
+                                                {{ $paginator:= .Paginate .Data.Pages }}
+                                                {{ range $paginator.Pages }}
+                                            <h2><a href="{{ .Permalink }}"><span>{{.Title}}</span></a></h2>
+                                            <div class="parallax-header"> <a href="#">10/04/2022</a><span>Categoria : </span><a href="#">Machine Learning</a> </div>
                                             <!-- blog media -->
                                             <div class="blog-media fl-wrap">
-                                                <img src="../images/folio/24.jpg" alt="">
+                                               {{ if .Params.image }} 
+                                                <img src="{{.Params.image | absURL }}" alt="">
                                             </div>
+                                                
                                             <!-- blog media end -->
                                             <div class="parallax-header fl-wrap"><span>Tags : </span><a href="#">Branding</a> <a href="#">Video</a>  <a href="#">Design</a></div>
                                             <div class="blog-text fl-wrap">
                                                 <div class="clearfix"></div>
-                                                <h3><a href="blog-single.html" >Aliquip pertinax <strong>vix ad </strong></a></h3>
+                                                <h3><a href="blog-single.html" >{{.Title}} </a></h3>
                                                 <p>
-                                                    Vestibulum orci felis, ullamcorper non condimentum non, ultrices ac nunc. Mauris non ligula suscipit, vulputate mi accumsan, dapibus felis. Nullam sed sapien dui. Nulla auctor sit amet sem non porta. Praesent eu massa vel diam laoreet elementum ac sed felis. Donec suscipit ultricies risus sed mollis. Donec volutpat porta risus posuere imperdiet. Sed viverra dolor sed dolor placerat ornare ut . Integer iaculis tellus nulla, quis imperdiet magna venenatis vitae..
+                                                    {{.Summary}}
                                                 </p>
-                                                <a href=" " class="btn float-btn color-btn flat-btn">Leia Mais </a>
+                                                <a href="{{.Permalink}}" class="btn float-btn color-btn flat-btn">Leia Mais </a>
+                                                   {{ end }}
                                             </div>
+                                            {{ end }}
                                         </div>
                                         <!-- post end-->                                      
                                     </div>
@@ -177,7 +184,7 @@
                                                         <img src="../images/all/2.jpg" alt="">
                                                         <h5><a href="#">Thalis Rebouças</a></h5>
                                                         <div class="clearfix"></div>
-                                                        <p>Etiam in nulla arcu, ut vehicula velit. Vivamus dapibus rutrum mi ut aliquam. In hac habitasse platea dictumst. Integer sagittis neque a tortor tempor in porta sem vulputate.</p>
+                                                        <p>Graduando em Estatística.</p>
                                                         <div class="about-widget-social fl-wrap">
                                                             <span>Caso queira : </span>
                                                             <ul >
