@@ -2,7 +2,8 @@
 title: "Distribuições com R"
 author: "Thalis Rebouças"
 date: "2021-10-27T12:14:34+03:00"
-categories: ["R"]
+categories: 
+- R
 tags:
 - R
 - ggplot

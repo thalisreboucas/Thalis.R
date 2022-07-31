@@ -2,7 +2,8 @@
 title: "Websraping Estados Do Ceará"
 author: "Thalis Rebouças"
 date: '2022-02-07T20:13:29-03:00'
-categories: R
+categories: 
+- R
 tags:
 - R
 - WebScraping

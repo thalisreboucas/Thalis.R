@@ -111,22 +111,34 @@
                         <!-- filter  -->
                         <div class="blog-filters">
                             <span>Filtrar por: </span>
-                            <!-- filter tag   -->
+                         <!-- filter tag   -->
                             <div class="tag-filter blog-btn-filter">
                                 <div class="blog-btn">Tags <i class="fa fa-tags" aria-hidden="true"></i></div>
-                                <ul>
-                                    <li><a href="#">R</a></li>
-                                    <li><a href="#">Python</a></li>
-                                </ul>
+                                 {{- if isset site.Taxonomies "tags" }}
+                                    {{- if not (eq (len site.Taxonomies.tags) 0) }}
+                                              <ul class="list-unstyled widget-list">
+                                                {{- range $name, $items := site.Taxonomies.tags }}
+                                              <li><a href="{{ `tags/` | relLangURL }}{{ $name | urlize | lower }}">
+                                     {{ $name | humanize }}</a></li>
+                                   {{- end }}
+                                       </ul>
+                                {{- end }}
+                              {{- end }}
                             </div>
                             <!-- filter tag end  -->
                             <!-- filter category    -->
                             <div class="category-filter blog-btn-filter">
                                 <div class="blog-btn">Categorias <i class="fa fa-list-ul" aria-hidden="true"></i></div>
-                                <ul>
-                                    <li><a href="#">Machine Learning</a></li>
-                                    <li><a href="#">Análise de dados</a></li>
+                                {{- if isset site.Taxonomies "categories" }}
+                                    {{- if not (eq (len site.Taxonomies.categories) 0) }}
+                                <ul class="list-unstyled widget-list">
+                                                {{- range $name, $items := site.Taxonomies.categories }}
+                                              <li><a href="{{ `categories/` | relLangURL }}{{ $name | urlize | lower }}">
+                                     {{ $name | humanize }}&nbsp;&nbsp;({{ len $items }})</a></li>
+                                   {{- end }}
                                 </ul>
+                               {{- end }}
+                              {{- end }}
                             </div>
                             <!-- filter category end  -->
                             <div class="blog-search">

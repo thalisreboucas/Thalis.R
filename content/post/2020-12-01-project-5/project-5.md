@@ -7,6 +7,8 @@ project_info:
 - content: https://bityli.com/oraculo
   icon: fas fa-link
   name: Link do Projeto
+categories:
+- chatbot
 tags:
 - Chatbot
 title: Oráculo  ChatBot

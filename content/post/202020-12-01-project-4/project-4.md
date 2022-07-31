@@ -7,6 +7,8 @@ project_info:
 - content: https://thalisreboucas.github.io/Template-rmarkdown/
   icon: fas fa-link
   name: Visualizar Projeto
+categories: 
+- R
 tags:
 - R
 - Rmarkdown

@@ -7,6 +7,8 @@ project_info:
 - content: https://github.com/thalisreboucas/Python-codes-ML
   icon: fas fa-link
   name: Visualizar Projeto
+categories: 
+- Python
 tags:
 - Python
 - development

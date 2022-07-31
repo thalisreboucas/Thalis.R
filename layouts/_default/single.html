@@ -50,34 +50,34 @@
                     <div class="menu-button-text">Menu</div>
                 </div>
                 <!-- nav-button-wrap end-->
-                <div class="header-social">
+                                <div class="header-social">
                     <ul >
-                        <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/thalisreboucas/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="https://www.instagram.com/thalisreboucas/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/ThalisReboucas" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://github.com/thalisreboucas" target="_blank"><i class="fab fa-github-alt"></i></a></li>
                     </ul>
                 </div>
-                <div class="show-share showshare">
-                    <i class="fal fa-retweet"></i>
-                    <span>Share This</span>
+                <div class="show-share">
+                    <i class="fa fa-barcode"></i>
                 </div>
             </header>
             <!--  header end -->
-            <!--  navigation bar -->
+             <!--  navigation bar -->
             <div class="nav-overlay">
-                <div class="tooltip color-bg">Close Menu</div>
+                <div class="tooltip color-bg">Fechar</div>
             </div>
             <div class="nav-holder">
-                <a class="header-logo" href="index.html"><img src="../../../../images/logo2.png" alt=""></a> 
+                <a class="header-logo" href="index.html"><img src="../images/logo2.png" alt=""></a> 
                 <div class="nav-title"><span>Menu</span></div>
                 <div class="nav-inner-wrap">
                     <nav class="nav-inner sound-nav" id="menu">
-                        <ul>
-                            <li><a href="#">Home</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="blog.html" class="act-link">Blog</a></li>
+                       <ul>
+                            <li><a href="../../../../#sec1" class="act-link">Home</a></li>
+                            <li><a href="../../../../#sec2">Sobre Mim</a></li>
+                            <li><a href="../../../../#sec3">Resumo</a></li>
+                            <li><a href="../../../../#sec6">Contato</a></li>
+                            <li><a href="../../../../post">Blog</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -131,7 +131,7 @@
                             <!-- filter category end  -->
                             <div class="blog-search">
                                 <form action="#" class="searh-inner fl-wrap">
-                                    <input name="se" id="se" type="text" class="search" placeholder="Search.." value="Search..." />
+                                    <input name="se" id="se" type="text" class="search" placeholder="Search.." value="Procurar..." />
                                     <button class="search-submit color-bg" id="submit_btn"><i class="fa fa-search"></i> </button>
                                 </form>
                             </div>
@@ -150,15 +150,21 @@
                                     <div class="col-md-8">
                                         <!-- post -->
                                         <div class="post fl-wrap fw-post">
-                                            <h2><a href="blog-single.html"><span>{{.Title | markdownify}}</span></a></h2>
-                                            <div class="parallax-header"> <a href="#">{{ .PublishDate.Format "02/01/2006" }}</a><span>Category : </span><a href="#">Branding</a> <a href="#">Video</a> </div>
+                                            <h2><a href=""><span>{{.Title | markdownify}}</span></a></h2>                                    <div class="parallax-header"> 
+                                              <a href="#">
+                                              {{ .PublishDate.Format "02/01/2006" }}</a>
+                                               {{ with .Params.categories }}
+                                            <span>Categoria : </span>
+                                      <a href="{{`categories` | absLangURL}}/{{.|urlize | lower}}">
+                                        {{ . }}</a>
+                                            </div>{{ end }}
                                             <!-- blog media -->
                                             <div class="blog-media fl-wrap nomar-bottom">
                                                 <div class="single-slider-wrap slider-carousel-wrap ">
+                                                    {{ if .Params.image }} 
                                                     <div class="single-slider cur_carousel-slider-container fl-wrap"  >
-                                                        <div class="slick-slide-item"><img src="../../../../images/folio/2.jpg" alt=""></div>
-                                                        <div class="slick-slide-item"><img src="../../../../images/folio/9.jpg" alt=""></div>
-                                                        <div class="slick-slide-item"><img src="../../../../images/folio/8.jpg" alt=""></div>
+                                                        <div class="slick-slide-item"><img src="{{.Params.image | absURL }}" alt=""></div>
+                                                    {{end}}
                                                     </div>
                                                     <div class="sp-cont   sp-cont-prev"><i class="fal fa-long-arrow-left"></i></div>
                                                     <div class="sp-cont   sp-cont-next"><i class="fal fa-long-arrow-right"></i></div>
@@ -176,33 +182,10 @@
                                                 {{ end }}
                    <div class="blog-text fl-wrap">
                                                 <div class="clearfix"></div>
-                                                <h3><a href="blog-single.html" >{{.Content}}
-                                                <ul class="post-counter single-post-counter">
-                                                    <li><i class="fa fa-eye"></i><span>687</span></li>
-                                                    <li><i class="fal fa-comments-alt"></i><span>10</span></li>
-                                                </ul>
+                                                <h3><a href="" >{{.Content}}
                                             </div>
                                         </div>
                                         <!-- post end-->
-                                        <!-- post-author-->                                   
-                                        <div class="post-author">
-                                            <div class="author-img">
-                                                <img alt='' src="../../../../images/all/2.jpg">	
-                                            </div>
-                                            <div class="author-content">
-                                                <h5><a href="#">Thalis Rebouças</a></h5>
-                                                <p>Graduando em Estatística.</p>
-                                                <div class="team-single-social fl-wrap">
-                                                    <span>Caso queira : </span>
-                                                    <ul>
-                                                                <li><a href="www.github.com/thalisreboucas" target="_blank">Github</a></li>
-                                                                <li><a href="www.instagram.com/thalisreboucas" target="_blank">Instagram</a></li>
-                                                                <li><a href="www.twitter.com/thalisreboucas" target="_blank">Twitter</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--post-author end-->
                                     </div>
                                     <!-- blog-sidebar  -->
                                     <div class="col-md-4">
@@ -287,11 +270,11 @@
                                 <!-- content-nav -->
                                 <div class="content-nav">
                                     <ul>
-                                        <li><a href="blog.html" class="ln"><i class="fal fa-arrow-left"></i><span class="tooltip">Prev - page 1</span></a></li>
+                                        <li><a href="blog.html" class="ln"><i class="fal fa-arrow-left"></i><span class="tooltip">Ante - Pag 1</span></a></li>
                                         <li>
-                                            <span class="cur-page"><span>Page 2</span></span>
+                                            <span class="cur-page"><span>Página 2</span></span>
                                         </li>
-                                        <li><a href="blog.html" class="rn"><i class="fal fa-arrow-right"></i><span class="tooltip">Next - page 2 </span></a></li>
+                                        <li><a href="post" class="rn"><i class="fal fa-arrow-right"></i><span class="tooltip">Prox - Pag 2 </span></a></li>
                                     </ul>
                                 </div>
                                 <!-- content-nav end-->     
