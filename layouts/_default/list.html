@@ -224,11 +224,13 @@
                                                 </div>
                                             </div>
                                             <!-- widget-wrap end  -->   
-                                                                                       <!-- widget-wrap -->
+                                            <!-- widget-wrap -->
                                             <div class="widget-wrap fl-wrap">
                                                 <h4 class="widget-title"><span>02.</span>Outras Postagens</h4>
                                                 <div class="widget-container fl-wrap">
                                                     <div class="widget-posts fl-wrap">
+                                                       {{ $related := (where site.RegularPages "Section" "post") | intersect (where site.Pages ".Title" "!=" .Title) | union (site.RegularPages.Related . ) }}
+                                                {{ range last 3 $related }}
                                                         <ul>
                                                             <li class="clearfix">
                                                               {{ if .Params.image }}
@@ -239,6 +241,7 @@
                                                                 </div>
                                                             </li>
                                                         </ul>
+                                                      {{ end }}
                                                     </div>
                                                 </div>
                                             </div>

@@ -549,16 +549,21 @@
                                 <!--slick-item -->
                                 <div class="slick-item">
                                     <div class="fet_pr-carousel-box">
-                                        <div class="fet_pr-carousel-box-media fl-wrap">
-                                            <img src="images/folio/web/slider/3.jpg" class="respimg" alt="">
-                                            <a href="images/folio/web/slider/3.jpg" class="fet_pr-carousel-box-media-zoom   image-popup"><i class="fal fa-search"></i></a>
+                                      {{ with .GetPage "post"}}
+                                        <div class="fet_pr-carousel-box-media fl-wrap"> 
+                                      	{{ range first 1  .Data.Pages }}
+                                            <img src="{{ .Params.image | absURL }}" class="respimg" alt="">
+                                            <a href="{{ .Params.image | absURL }}" class="fet_pr-carousel-box-media-zoom   image-popup"><i class="fal fa-search"></i></a>
                                         </div>
                                         <div class="fet_pr-carousel-box-text fl-wrap">
-                                            <h3><a href="portfolio-single.html">Em breve</a></h3>
-                                            <div class="fet_pr-carousel-cat"><a href="#">Blog</a> <a href="#"></a></div>
+                                            <h3><a href="portfolio-single.html">{{ .Title | markdownify }}</a></h3>
+                                             <div class="fet_pr-carousel-cat"><a href="{{.Permalink}}">Clique aqui para ler</a> 
+                                             </div>	
+                                            {{end}}
                                         </div>
                                     </div>
                                 </div>
+                              {{end}}
                                 <!--slick-item end -->
                             </div>
                             <!--fet_pr-carousel end -->
