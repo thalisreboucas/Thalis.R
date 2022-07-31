@@ -8,6 +8,7 @@
         <meta name="robots" content="index, follow"/>
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
        {{ "<!-- JS Plugins -->" | safeHTML }}
           {{ range site.Params.plugins.js}}
         <script src="{{ .link | absURL }}"></script>
