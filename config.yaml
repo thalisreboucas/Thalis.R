@@ -1,4 +1,4 @@
-baseURL: http://thalis.netlify.app/
+baseURL: http://thalis.netlify.app/home
 title: Thalis Rebouças
 languageCode: pt-br
 googleAnalytics: 'G-HQXYFWMZ3J'
@@ -8,11 +8,7 @@ ignoreFiles:
   - _cache$
   - \.knit\.md$
   - \.utf8\.md$
-markup:
-  goldmark:
-    renderer:
-      unsafe: yes  
-  
+
 permalinks:
   post: /:year/:month/:day/:slug/
 
@@ -33,7 +29,7 @@ params:
       - link: plugins/js/plugins.js
       - link: plugins/js/scripts.js
       - link: //cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js
-      - link: plugins/js/highlight.pack.js
+      - link: plugins/highlight.pack.js
      MathJaxVersion: 2.7.5
      highlightjsCDN: "//cdnjs.cloudflare.com/ajax/libs"
      highlightjsLang:
