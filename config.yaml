@@ -1,4 +1,4 @@
-baseURL: http://thalis.netlify.app/home
+baseURL: http://thalis.netlify.app/
 title: Thalis Rebouças
 languageCode: pt-br
 googleAnalytics: 'G-HQXYFWMZ3J'
@@ -33,7 +33,7 @@ params:
       - link: plugins/js/plugins.js
       - link: plugins/js/scripts.js
       - link: //cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js
-      - link: plugins/highlight.pack.js
+      - link: plugins/js/ighlight.pack.js
      MathJaxVersion: 2.7.5
      highlightjsCDN: "//cdnjs.cloudflare.com/ajax/libs"
      highlightjsLang:
