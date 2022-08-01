@@ -1,5 +1,5 @@
 //   all ------------------
-function initSolonick() {
+function initThalis() {
     "use strict";
     //   loader ------------------
     $(".pin").text("Carregando");
@@ -824,5 +824,5 @@ jQuery("<span class='folio-btn-dot'></span>").duplicate(9).appendTo(".folio-btn-
 //   Init All ------------------
 $(function () {
     initparallax();
-    initSolonick();
+    initThalis();
 });

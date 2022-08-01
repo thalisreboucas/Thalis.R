@@ -9,14 +9,6 @@
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-        <!--=============== scripts  ===============-->
-        {{ "<!-- JS Plugins -->" | safeHTML }}
-        {{ range site.Params.plugins.js}}
-        <script src="{{ .link | absURL }}"></script>
-        {{ end }}
-        <script>hljs.initHighlightingOnLoad();</script>
-        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...">
-        </script>
         <!--=============== css  ===============-->
         <link type="text/css" rel="stylesheet" href="../../../../plugins/css/reset.css">
         <link type="text/css" rel="stylesheet" href="../../../../plugins/css/plugins.css">
@@ -380,5 +372,13 @@
             <!--   content end -->
         </div>
         <!-- Main end -->
+                <!--=============== scripts  ===============-->
+        {{ "<!-- JS Plugins -->" | safeHTML }}
+        {{ range site.Params.plugins.js}}
+        <script src="{{ .link | absURL }}"></script>
+        {{ end }}
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?...">
+        </script>
     </body>
 </html>

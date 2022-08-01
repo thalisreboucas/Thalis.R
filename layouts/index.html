@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="en" class=" js csstransitions">
+<html lang="en">
     <head>
         <!--=============== basic  ===============-->
         <meta charset="UTF-8">
@@ -9,10 +9,6 @@
         <meta name="keywords" content=""/>
         <meta name="description" content=""/>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-       {{ "<!-- JS Plugins -->" | safeHTML }}
-          {{ range site.Params.plugins.js}}
-        <script src="{{ .link | absURL }}"></script>
-          {{ end }}
         <!--=============== css  ===============-->
         <link type="text/css" rel="stylesheet" href="plugins/css/reset.css">
         <link type="text/css" rel="stylesheet" href="plugins/css/plugins.css">
@@ -703,5 +699,10 @@
             <!--   content end -->
         </div>
         <!-- Main end -->
+          <!--=============== JS scripts  ===============-->
+          {{ "<!-- JS Plugins -->" | safeHTML }}
+           {{ range site.Params.plugins.js}}
+           <script src="{{ .link | absURL }}"></script>
+          {{ end }}
     </body>
 </html>
