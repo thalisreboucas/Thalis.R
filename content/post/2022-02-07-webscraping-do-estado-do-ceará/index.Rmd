@@ -12,7 +12,11 @@ draft: no
 ---
 
 
-Para esta aplicação vamos Precisar do Pacote `Rvest` responsavél por fazer esse trabalho para gente. 
+Para esta aplicação vamos Precisar do Pacote `Rvest` responsavél por fazer esse trabalho para gente.
+
+Neste caso ele ira fazer uma raspagem do site paseando pelo html e pegando os dados que irimeos dizer para ele capturar.
+
+Utilizaremos também o tidyverse e stringr para ajudar na manipulação de dados. 
 
 O site que vamos pegar as informações é o "https://cep.guiamais.com.br/" , que possue os ceps e endereços de todos os estados do Brasil.
 
@@ -27,6 +31,7 @@ library(stringr , quietly = TRUE)
 
 # Web scraping dos bairros Fortaleza 
 
+Para fazer isso utilizaremos o seguinte código :
 
 ```
 url_fortal <- paste0("https://cep.guiamais.com.br/busca/fortaleza-ce?page=NUMBER")
@@ -39,7 +44,7 @@ for(i in 1:400){
   dados_fortaleza <- dplyr::bind_rows(dados_fortaleza, tabela)
 }
 ```
-
+Neste Caso a gente definimos a **url** que queremos como uma variável e neste caso como a gente vai fazer uma raspagem completa precisaremos fazer um `for`para pegar todos os dados por todas as páginas e com isso depois fazer nossa base de dados com os dados coletados que são dados já prontos para uso , pois o comando `html_table` já indifica os dados e coleta de maneira automática e pronta para o uso.
 
 ```{r ,include=FALSE}
 url_fortal <- paste0("https://cep.guiamais.com.br/busca/fortaleza-ce?page=NUMBER")
@@ -57,9 +62,15 @@ dados_fortaleza <- dplyr::rename(dados_fortaleza ,BAIRRO = BAIRRO...2 , CIDADE_E
 
 ## Olhando para ver se deu tudo certo 
 
+Depois de rodar o código vamos verificar se deu certo.
+
+
 ```{r}
 dados_fortaleza %>% head()
 ```
+
+Deu tudo certo !!! consigos ver os dados que queiriamos coletados e em um data frame.
+Vamos ver quantos bairros temos em fortaleza.
 
 
 ```{r}
