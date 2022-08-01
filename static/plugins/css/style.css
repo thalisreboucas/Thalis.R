@@ -6513,8 +6513,16 @@ section.parallax-section .section-title:before {
 	}
 }
 
+.folio-btn {
+    right: 0;
+    height: 70px;
+	width: 70px;
+}
 
-
+.folio-btn-item {
+    left: 15px;
+    top: 15px;
+}
 .folio-btn{
 	position:absolute;
 	right:0;
