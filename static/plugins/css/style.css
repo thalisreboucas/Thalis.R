@@ -6513,74 +6513,10 @@ section.parallax-section .section-title:before {
 	}
 }
 
-.folio-btn {
+.i-btn {
     right: 0;
     height: 70px;
-	width: 70px;
+	  width: 70px;
+	  color: #F68338;
 }
-
-.folio-btn-item {
-    left: 15px;
-    top: 15px;
-}
-.folio-btn{
-	position:absolute;
-	right:0;
-	width:100%;
-	bottom:0;
-	height:80px;
-	background:#343434;
-	border-top:1px solid rgba(255,255,255,0.1)
-}
-.folio-btn-tooltip {
-	position:absolute;
-	height:80px;
-	line-height:80px;
-	font-size:10px;
-	text-transform:uppercase;
-	letter-spacing:2px;
-	top:20px;
-	left:100%;
-	width:190px;
-	background:#292929;
-	border-left:1px solid rgba(255,255,255,0.1);
-	visibility:hidden;
-	opacity:0;
-	transition: all 300ms linear;
-}
-.folio-btn:hover .folio-btn-tooltip{
-	opacity:1;
-	visibility:visible;
-	top:0;
-} 
-.folio-btn-item {
-	position:absolute;
-	left:20px;
-	width:40px;
-	height:40px;
-	top:20px;
-} 
-.folio-btn-dot {
-	float:left;
-	width:33.3%;
-	height:33.3%;
-	position:relative;
-}
-.folio-btn-dot:before {
-	content:'';
-	position:absolute;
-	left:50%;
-	top:50%;
-	width:4px;
-	height:4px;
-	margin:-2px 0 0 -2px;
-	border-radius:50%;
-	transition: all 300ms linear;
-	transform: scale(1.0);
-}
-.folio-btn:hover .folio-btn-dot:first-child:before , .folio-btn:hover .folio-btn-dot:nth-child(3):before, .folio-btn:hover .folio-btn-dot:nth-child(4):before , .folio-btn:hover .folio-btn-dot:nth-child(8):before {
-	 transform: scale(1.8);
-	 opacity:0.5
-}
-
 
