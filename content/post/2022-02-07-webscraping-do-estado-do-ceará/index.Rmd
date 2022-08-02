@@ -62,7 +62,11 @@ dados_fortaleza <- dplyr::rename(dados_fortaleza ,BAIRRO = BAIRRO...2 , CIDADE_E
 
 ## Olhando para ver se deu tudo certo 
 
-Depois de rodar o código vamos verificar se deu certo.
+Depois de rodar o código vamos verificar se deu certo.Pois demorou um pouco KKK...
+
+e
+
+Depois de 400 PÁGINASSS.
 
 
 ```{r}
@@ -70,19 +74,27 @@ dados_fortaleza %>% head()
 ```
 
 Deu tudo certo !!! consigos ver os dados que queiriamos coletados e em um data frame.
-Vamos ver quantos bairros temos em fortaleza.
+Vamos ver quantas ruas temos em fortaleza.
 
 
 ```{r}
-dados_fortaleza %>% dplyr::count(BAIRRO) %>% View()
+dados_fortaleza %>% dplyr::count(BAIRRO) %>% summarise( Total = sum(n))
+                  
 ```
+
+E por incrível que pareça temos 10.000 logradouros oficiais.Caso queira colocar em arquivo .csv esse é o código abaixo.
+
 
 ```{r}
 #write.table(dados_fortaleza, file="Fortaleza.csv", sep=";")
 ```
 
+E caucaia ?
+
+
 # Web scraping dos bairros caucaia
 
+Iremos fazer a mesma coisa só que para caucaia então ,lá vamos nos ...
 
 
 ```{r include=FALSE}
@@ -114,13 +126,11 @@ for(i in 1:93){
 dados <- dplyr::rename(dados ,BAIRRO = BAIRRO...2 , CIDADE_ESTADO = BAIRRO...4 )
 ```
 
-
-
-## Olhando para ver se deu tudo certo 
+# Caucaia tem quantas ruas ?
 
 ```{r}
-dados %>% head()
+dados %>% dplyr::count(BAIRRO) %>% summarise( Total = sum(n))
 ```
 
-
+Foi bem mais rápido a raspagem e caúcaia tem 2325 ruas oficiais o que nos leva a conclussão que fortaleza tem *4 vezes* mais ruas que caucaia e que se para se perder é melhor ... bem não é bom se perder em nenhum canto.
 
