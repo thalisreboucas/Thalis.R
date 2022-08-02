@@ -2,18 +2,23 @@
 title: "Websraping Estados Do Ceará"
 author: "Thalis Rebouças"
 date: '2022-02-07T20:13:29-03:00'
-categories: R
+output:
+  html_document:
+    df_print: paged
 tags:
 - R
 - WebScraping
 image: images/portfolio/web_ce.png
 draft: no
+categories: R
 ---
 
 <script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
 
 
 <p>Para esta aplicação vamos Precisar do Pacote <code>Rvest</code> responsavél por fazer esse trabalho para gente.</p>
+<p>Neste caso ele ira fazer uma raspagem do site paseando pelo html e pegando os dados que irimeos dizer para ele capturar.</p>
+<p>Utilizaremos também o tidyverse e stringr para ajudar na manipulação de dados.</p>
 <p>O site que vamos pegar as informações é o “<a href="https://cep.guiamais.com.br/" class="uri">https://cep.guiamais.com.br/</a>” , que possue os ceps e endereços de todos os estados do Brasil.</p>
 <pre class="r"><code>library(rvest , quietly = TRUE)
 library(tidyverse , quietly = TRUE)</code></pre>
@@ -30,6 +35,7 @@ library(tidyverse , quietly = TRUE)</code></pre>
 library(stringr , quietly = TRUE)</code></pre>
 <div id="web-scraping-dos-bairros-fortaleza" class="section level1">
 <h1>Web scraping dos bairros Fortaleza</h1>
+<p>Para fazer isso utilizaremos o seguinte código :</p>
 <pre><code>url_fortal &lt;- paste0(&quot;https://cep.guiamais.com.br/busca/fortaleza-ce?page=NUMBER&quot;)
 dados_fortaleza &lt;- data.frame()
 for(i in 1:400){
@@ -39,29 +45,40 @@ for(i in 1:400){
   tabela &lt;- lista.tabelas[[1]]
   dados_fortaleza &lt;- dplyr::bind_rows(dados_fortaleza, tabela)
 }</code></pre>
+<p>Neste Caso a gente definimos a <strong>url</strong> que queremos como uma variável e neste caso como a gente vai fazer uma raspagem completa precisaremos fazer um <code>for</code>para pegar todos os dados por todas as páginas e com isso depois fazer nossa base de dados com os dados coletados que são dados já prontos para uso , pois o comando <code>html_table</code> já indifica os dados e coleta de maneira automática e pronta para o uso.</p>
 <div id="olhando-para-ver-se-deu-tudo-certo" class="section level2">
 <h2>Olhando para ver se deu tudo certo</h2>
+<p>Depois de rodar o código vamos verificar se deu certo.Pois demorou um pouco KKK…</p>
+<p>e</p>
+<p>Depois de 400 PÁGINASSS.</p>
 <pre class="r"><code>dados_fortaleza %&gt;% head()</code></pre>
-<pre><code>##                                    LOGRADOURO               BAIRRO
-## 1 Rua 01 A do Cidade Jardim Fortaleza Gleba A Prefeito José Walter
-## 2                Rua 01(Lot Lagoa da Libânia)             Mondubim
-## 3                       Rua 01(Lot Urucutuba)             Siqueira
-## 4 Rua 02 A do Cidade Jardim Fortaleza Gleba A Prefeito José Walter
-## 5                       Rua 02(Lot Urucutuba)             Siqueira
-## 6                       Rua 03(Lot Urucutuba)             Siqueira
-##   CIDADE/ESTADO                       CIDADE_ESTADO       CEP
-## 1 Fortaleza, CE Prefeito José Walter, Fortaleza, CE 60748-540
-## 2 Fortaleza, CE             Mondubim, Fortaleza, CE 60767-702
-## 3 Fortaleza, CE             Siqueira, Fortaleza, CE 60544-760
-## 4 Fortaleza, CE Prefeito José Walter, Fortaleza, CE 60748-570
-## 5 Fortaleza, CE             Siqueira, Fortaleza, CE 60544-763
-## 6 Fortaleza, CE             Siqueira, Fortaleza, CE 60544-766</code></pre>
-<pre class="r"><code>dados_fortaleza %&gt;% dplyr::count(BAIRRO) %&gt;% View()</code></pre>
+<pre><code>##                                    LOGRADOURO                   BAIRRO
+## 1 Rua 01 A do Cidade Jardim Fortaleza Gleba A     Prefeito José Walter
+## 2                Rua 01(Lot Lagoa da Libânia)                 Mondubim
+## 3                       Rua 01(Lot Urucutuba)                 Siqueira
+## 4 Rua 02 A do Cidade Jardim Fortaleza Gleba A     Prefeito José Walter
+## 5                       Rua 02(Lot Urucutuba)                 Siqueira
+## 6            Rua 02 do Loteamento Dom Vicente Parque Presidente Vargas
+##   CIDADE/ESTADO                           CIDADE_ESTADO       CEP
+## 1 Fortaleza, CE     Prefeito José Walter, Fortaleza, CE 60748-540
+## 2 Fortaleza, CE                 Mondubim, Fortaleza, CE 60767-702
+## 3 Fortaleza, CE                 Siqueira, Fortaleza, CE 60544-760
+## 4 Fortaleza, CE     Prefeito José Walter, Fortaleza, CE 60748-570
+## 5 Fortaleza, CE                 Siqueira, Fortaleza, CE 60544-763
+## 6 Fortaleza, CE Parque Presidente Vargas, Fortaleza, CE 60765-537</code></pre>
+<p>Deu tudo certo !!! consigos ver os dados que queiriamos coletados e em um data frame.
+Vamos ver quantas ruas temos em fortaleza.</p>
+<pre class="r"><code>dados_fortaleza %&gt;% dplyr::count(BAIRRO) %&gt;% summarise( Total = sum(n))</code></pre>
+<pre><code>##   Total
+## 1 10000</code></pre>
+<p>E por incrível que pareça temos 10.000 logradouros oficiais.Caso queira colocar em arquivo .csv esse é o código abaixo.</p>
 <pre class="r"><code>#write.table(dados_fortaleza, file=&quot;Fortaleza.csv&quot;, sep=&quot;;&quot;)</code></pre>
+<p>E caucaia ?</p>
 </div>
 </div>
 <div id="web-scraping-dos-bairros-caucaia" class="section level1">
 <h1>Web scraping dos bairros caucaia</h1>
+<p>Iremos fazer a mesma coisa só que para caucaia então ,lá vamos nos …</p>
 <pre><code>
 url_base &lt;- paste0(&quot;https://cep.guiamais.com.br/busca/caucaia-ce?page=NUMBER&quot;)
 dados &lt;- data.frame()
@@ -74,22 +91,11 @@ for(i in 1:93){
 }
 
 dados &lt;- dplyr::rename(dados ,BAIRRO = BAIRRO...2 , CIDADE_ESTADO = BAIRRO...4 )</code></pre>
-<div id="olhando-para-ver-se-deu-tudo-certo-1" class="section level2">
-<h2>Olhando para ver se deu tudo certo</h2>
-<pre class="r"><code>dados %&gt;% head()</code></pre>
-<pre><code>##                       LOGRADOURO                   BAIRRO CIDADE/ESTADO
-## 1 Rua 1 A(Lot Planalto Palmirim)                 Paumirim   Caucaia, CE
-## 2    Rua 1(Cj Prq dos Coqueiros) Marechal Rondon (Jurema)   Caucaia, CE
-## 3              Rua 1(Cj Tabapuá)                  Tabapuá   Caucaia, CE
-## 4                Rua 1(Lot Buti)                   Cigana   Caucaia, CE
-## 5        Rua 1(Cj Jardim Icaraí)                   Icaraí   Caucaia, CE
-## 6          Rua 1(Cj Metrópole V)  Nova Metrópole (Jurema)   Caucaia, CE
-##                           CIDADE_ESTADO       CEP
-## 1                 Paumirim, Caucaia, CE 61611-223
-## 2 Marechal Rondon (Jurema), Caucaia, CE 61652-740
-## 3                  Tabapuá, Caucaia, CE 61635-035
-## 4                   Cigana, Caucaia, CE 61605-282
-## 5                   Icaraí, Caucaia, CE 61626-010
-## 6  Nova Metrópole (Jurema), Caucaia, CE 61659-000</code></pre>
 </div>
+<div id="caucaia-tem-quantas-ruas" class="section level1">
+<h1>Caucaia tem quantas ruas ?</h1>
+<pre class="r"><code>dados %&gt;% dplyr::count(BAIRRO) %&gt;% summarise( Total = sum(n))</code></pre>
+<pre><code>##   Total
+## 1  2325</code></pre>
+<p>Foi bem mais rápido a raspagem e caúcaia tem 2325 ruas oficiais o que nos leva a conclussão que fortaleza tem <em>4 vezes</em> mais ruas que caucaia e que se para se perder é melhor … bem não é bom se perder em nenhum canto.</p>
 </div>
