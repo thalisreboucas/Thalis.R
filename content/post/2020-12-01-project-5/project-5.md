@@ -21,23 +21,6 @@ title: Oráculo  ChatBot
 ### Descrição
 
 
-Esse é chatbot para responder algumas dúvidas. Digite "Olá." para começar , espero que goste. Esse Chatbot funciona apenas na lingua portuguesas.
+Esse é chatbot para responder algumas dúvidas. Digite "Olá." para começar , espero que goste. Esse Chatbot funciona apenas na lingua portuguesa.
 
 
-
-<br>
-
-Caso queira compartilhar.
-
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://thalis.netlify.app/portfolio/project-5/">
-	<img width="25" height="25" src="/images/icons/facebook.png" alt="">
-</a>
-
-
-<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://thalis.netlify.app/portfolio/project-5/">
-	<img width="25" height="25" src="/images/icons/linkedin.png" alt="">
-</a>
-
-<a href="https://api.whatsapp.com/send?text=https://thalis.netlify.app/portfolio/project-5/" target="_blank" rel="noopener external nofollow" aria-label="Olha que top !!">
-<img width="25" height="25"  src="/images/icons/whatsapp.png" alt="Compartilhe no WhatsApp">
-</a>
