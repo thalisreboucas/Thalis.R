@@ -145,7 +145,7 @@
                     </div>
                     <!-- single-page-fixed-row end-->
                     <!-- section --> 
-                    <section data-scrollax-parent="true" id="sec1">
+                    <section data-scrollax-parent="true" id="sec1" >
                         <div class="section-subtitle left-pos"  data-scrollax="properties: { translateY: '-250px' }" ><span>//</span>Ciência <br>de dados</div>
                         <div class="container">
                             <!-- blog-container  -->
@@ -381,5 +381,7 @@
            {{ range site.Params.plugins.js}}
            <script src="{{ .link | absURL }}"></script>
           {{ end }}
+          <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     </body>
 </html>
