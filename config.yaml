@@ -19,6 +19,8 @@ permalinks:
 params:
   author: Thalis
   favicon: images/favicon.ico
+  logo2: images/logo2.png
+  logo: images/logo.png
   plugins:
      css:
        - link: https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap

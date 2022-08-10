@@ -10,7 +10,6 @@
         <meta name="description" content=""/>
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
         <!--=============== css  ===============-->
-        
         {{ "<!-- CSS Plugins -->" | safeHTML }}
         {{ range site.Params.plugins.css}}
         <link type="text/css" rel="stylesheet" href="{{ .link | absURL }}"></link>
@@ -31,7 +30,7 @@
             <!-- header-->
             <header class="main-header">
                 <a class="logo-holder " href="index.html">
-                <img src="images/logo.png"  alt="">
+                <img src="{{ site.Params.logo | absURL }}"  alt="">
                 </a>
                 <!-- nav-button-wrap-->
                 <div class="nav-button but-hol">
@@ -62,7 +61,7 @@
                 <div class="tooltip color-bg">Fechar</div>
             </div>
             <div class="nav-holder">
-                <a class="header-logo" href="index.html"><img src="images/logo2.png" alt=""></a> 
+                <a class="header-logo" href="index.html"><img src="{{ site.Params.logo2 | absURL }}" alt=""></a> 
                 <div class="nav-title"><span>Menu</span></div>
                 <div class="nav-inner-wrap">
                     <nav class="nav-inner sound-nav" id="menu">
