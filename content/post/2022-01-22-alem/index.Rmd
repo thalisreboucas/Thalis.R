@@ -16,7 +16,7 @@ draft: no
 É um aplicativo explicando melhor sobre o algoritmo de Maxima Expectativa
        *Algoritmo de maximização de expectativa.*
 					É um método interativo baseado em uma maximização para estimar os parâmentros da distribuições a patir dos dados da amostra. Os dados podem ser variáveis latentes, ou seja, não observadas de forma quantitativa inicialmente, nesta ferramentas pode utilizar o banco de dados com dados faltantes ,pois em uma das etapas ocorre a imputação de dados para estimar o modelo. 
-							A iteração EM alterna entre executar uma etapa de expectativa (E), e uma de maximização (M). A etapa de expectativa cria uma função para a expectativa da verossimilhança logarítmica usando a estimativa atual para os parâmetros. A etapa de maximização (M), calcula parâmetros para maximizar a verossimilhança logarítmica encontrada na etapa E. Essas estimativas de parâmetro são usadas para determinar a distribuição das variáveis latentes na próxima etapa E, e o algoritmo se repete várias vezes (por isso é chamado iterativo).
+							A iteração EM alterna entre executar uma etapa de expectativa (E) e uma de maximização (M). A etapa de expectativa cria uma função para a expectativa da verossimilhança logarítmica usando a estimativa atual para os parâmetros. A etapa de maximização (M), calcula parâmetros para maximizar a verossimilhança logarítmica encontrada na etapa E. Essas estimativas de parâmetro são usadas para determinar a distribuição das variáveis latentes na próxima etapa E, e o algoritmo se repete várias vezes (por isso é chamado iterativo).
 
 
 ### Aplicações dessa ferramenta
