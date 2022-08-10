@@ -16,34 +16,22 @@ title: C0des Python
 ---
 
 
-#### Descrição
+## Descrição
 
 Neste link temos um caminho até meu github onde temos algums Python explicados do básico a modelos de Machine learning PRONTOSSS !!
-
 
 #### Requerimentos
 
 É importante saber Python e saber como mexer no JupyterNotebook =) 
+
+1. [Regressão](https://github.com/thalisreboucas/Python-codes-ML/blob/main/Lab_Guide_01.ipynb)
+2. [Regressão e otimização de parâmentos](https://github.com/thalisreboucas/Python-codes-ML/blob/main/Lab_Guide_02.ipynb)
+3.[TensorFlow](https://github.com/thalisreboucas/Python-codes-ML/blob/main/Lab_Guide_04.ipynb)
+4.[Tensorflow e Aplicações](https://github.com/thalisreboucas/Python-codes-ML/blob/main/Lab_Guide_04.ipynb)
+5.[MindSpore](https://github.com/thalisreboucas/Python-codes-ML/blob/main/Lab_Guide_06_MindSpore.ipynb)
 
 #### Repositório no Github
 
 <a href="https://github.com/thalisreboucas/Python-codes-ML"  >
     <img alt="Github" src="https://img.shields.io/badge/C0desPython-181717?style=for-the-badge&logo=github&logoColor=white" />
     </a>
-
-<br>
-
-Caso queira compartilhar.
-
-<a href="https://www.facebook.com/sharer/sharer.php?u=https://thalis.netlify.app/portfolio/project-2/">
-	<img width="25" height="25" src="/images/icons/facebook.png" alt="">
-</a>
-
-
-<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://thalis.netlify.app/portfolio/project-2/">
-	<img width="25" height="25" src="/images/icons/linkedin.png" alt="">
-</a>
-
-<a href="https://api.whatsapp.com/send?text=https://thalis.netlify.app/portfolio/project-2/" target="_blank" rel="noopener external nofollow" aria-label="Olha que top !!">
-<img width="25" height="25"  src="/images/icons/whatsapp.png" alt="Compartilhe no WhatsApp">
-</a>
