@@ -18,11 +18,12 @@ permalinks:
 
 params:
   author: Thalis
+  favicon: images/favicon.ico
   plugins:
      css:
        - link: https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900&display=swap
        - link: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css
-       - link: plugins/github.css
+       - link: plugins/css/github.css
        - link: plugins/css/reset.css
        - link: plugins/css/plugins.css
        - link: plugins/css/style.css
