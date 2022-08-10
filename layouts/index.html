@@ -531,7 +531,6 @@
                     </section>
                     <!-- section end -->
                     <!--section -->
-                  {{ with .GetPage "post"}}
                     <section class="dark-bg" id="sec5">
                         <div class="fet_pr-carousel-title">
                             <div class="fet_pr-carousel-title-item">
@@ -540,12 +539,13 @@
                                 <a href="post" class="btn float-btn flat-btn color-btn mar-top">Veja Mais</a>
                             </div>
                         </div>
+                  {{ with .GetPage "post"}}
                       <!--slider-carousel-wrap -->
                     <div class="slider-carousel-wrap fl-wrap">
                          <!--fet_pr-carousel -->
                           <div class="fet_pr-carousel cur_carousel-slider-container fl-wrap">
+                             {{ range first 5 .Data.Pages }}
                                 <!--slick-item -->
-                               {{ range first 3 .Data.Pages }}
                                 <div class="slick-item">
                                     <div class="fet_pr-carousel-box">
                                            <div class="fet_pr-carousel-box-media fl-wrap"> 
@@ -555,21 +555,24 @@
                                          <div class="fet_pr-carousel-box-text fl-wrap">
                                         <h3><a href="{{.Permalink}}">{{ .Title | markdownify }}</a></h3>
                                   <div class="fet_pr-carousel-cat"><a href="{{.Permalink}}">Clique aqui para ler</a> 
+                                  <a></a>
                                 </div>	
                              </div>
                            </div>
-                       </div>
-                      {{end}}
+                         </div>
+                        {{end}}
                         <!--slick-item end -->
-                            </div>
+                      </div>
+                   </div>
                             <!--fet_pr-carousel end -->
                             <div class="sp-cont sp-arr sp-cont-prev"><i class="fal fa-long-arrow-left"></i></div>
                             <div class="sp-cont sp-arr sp-cont-next"><i class="fal fa-long-arrow-right"></i></div>
                         </div>
                         <!--slider-carousel-wrap end-->
                         <div class="fet_pr-carousel-counter"></div>
+                   {{end}}
                     </section>
-                  {{end}}
+ 
                     <!-- section end -->
                     <!-- section -->  
                     <section data-scrollax-parent="true" id="sec6">
