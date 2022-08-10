@@ -530,6 +530,7 @@
                         <div class="sec-lines"></div>
                     </section>
                     <!-- section end -->
+                   {{ with .GetPage "post"}}
                     <!--section -->
                     <section class="dark-bg" id="sec5">
                         <div class="fet_pr-carousel-title">
@@ -539,13 +540,12 @@
                                 <a href="post" class="btn float-btn flat-btn color-btn mar-top">Veja Mais</a>
                             </div>
                         </div>
-                  {{ with .GetPage "post"}}
                       <!--slider-carousel-wrap -->
                     <div class="slider-carousel-wrap fl-wrap">
                          <!--fet_pr-carousel -->
                           <div class="fet_pr-carousel cur_carousel-slider-container fl-wrap">
-                             {{ range first 5 .Data.Pages }}
                                 <!--slick-item -->
+                                {{ range first 5 .Data.Pages }}
                                 <div class="slick-item">
                                     <div class="fet_pr-carousel-box">
                                            <div class="fet_pr-carousel-box-media fl-wrap"> 
@@ -559,10 +559,9 @@
                                 </div>	
                              </div>
                            </div>
-                         </div>
-                        {{end}}
-                        <!--slick-item end -->
                       </div>
+                      {{end}}
+                      <!--slick-item end -->
                    </div>
                             <!--fet_pr-carousel end -->
                             <div class="sp-cont sp-arr sp-cont-prev"><i class="fal fa-long-arrow-left"></i></div>
@@ -570,9 +569,8 @@
                         </div>
                         <!--slider-carousel-wrap end-->
                         <div class="fet_pr-carousel-counter"></div>
-                   {{end}}
                     </section>
- 
+                    {{end}}
                     <!-- section end -->
                     <!-- section -->  
                     <section data-scrollax-parent="true" id="sec6">
