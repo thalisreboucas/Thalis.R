@@ -138,7 +138,7 @@
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="collage-image fl-wrap">
-                                        <div class="collage-image-title" data-scrollax="properties: { translateY: '150px' }">Thalis.</div>
+                                        <div class="collage-image-title" data-scrollax="properties: { translateY: '150px' }">Thalis.R</div>
                                         <img src="images/all/1.jpg" class="respimg" alt="">
                                     </div>
                                 </div>
@@ -531,6 +531,7 @@
                     </section>
                     <!-- section end -->
                     <!--section -->
+                  {{ with .GetPage "post"}}
                     <section class="dark-bg" id="sec5">
                         <div class="fet_pr-carousel-title">
                             <div class="fet_pr-carousel-title-item">
@@ -539,29 +540,27 @@
                                 <a href="post" class="btn float-btn flat-btn color-btn mar-top">Veja Mais</a>
                             </div>
                         </div>
-                        <!--slider-carousel-wrap -->
-                        <div class="slider-carousel-wrap fl-wrap">
-                            <!--fet_pr-carousel -->
-                            <div class="fet_pr-carousel cur_carousel-slider-container fl-wrap">
+                      <!--slider-carousel-wrap -->
+                    <div class="slider-carousel-wrap fl-wrap">
+                         <!--fet_pr-carousel -->
+                          <div class="fet_pr-carousel cur_carousel-slider-container fl-wrap">
                                 <!--slick-item -->
+                               {{ range first 3 .Data.Pages }}
                                 <div class="slick-item">
                                     <div class="fet_pr-carousel-box">
-                                      {{ with .GetPage "post"}}
-                                        <div class="fet_pr-carousel-box-media fl-wrap"> 
-                                      	{{ range first 1  .Data.Pages }}
+                                           <div class="fet_pr-carousel-box-media fl-wrap"> 
                                             <img src="{{ .Params.image | absURL }}" class="respimg" alt="">
                                             <a href="{{ .Params.image | absURL }}" class="fet_pr-carousel-box-media-zoom   image-popup"><i class="fal fa-search"></i></a>
-                                        </div>
-                                        <div class="fet_pr-carousel-box-text fl-wrap">
-                                            <h3><a href="portfolio-single.html">{{ .Title | markdownify }}</a></h3>
-                                             <div class="fet_pr-carousel-cat"><a href="{{.Permalink}}">Clique aqui para ler</a> 
-                                             </div>	
-                                            {{end}}
-                                        </div>
-                                    </div>
-                                </div>
-                              {{end}}
-                                <!--slick-item end -->
+                                          </div>
+                                         <div class="fet_pr-carousel-box-text fl-wrap">
+                                        <h3><a href="{{.Permalink}}">{{ .Title | markdownify }}</a></h3>
+                                  <div class="fet_pr-carousel-cat"><a href="{{.Permalink}}">Clique aqui para ler</a> 
+                                </div>	
+                             </div>
+                           </div>
+                       </div>
+                      {{end}}
+                        <!--slick-item end -->
                             </div>
                             <!--fet_pr-carousel end -->
                             <div class="sp-cont sp-arr sp-cont-prev"><i class="fal fa-long-arrow-left"></i></div>
@@ -570,6 +569,7 @@
                         <!--slider-carousel-wrap end-->
                         <div class="fet_pr-carousel-counter"></div>
                     </section>
+                  {{end}}
                     <!-- section end -->
                     <!-- section -->  
                     <section data-scrollax-parent="true" id="sec6">
