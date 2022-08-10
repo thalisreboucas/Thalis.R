@@ -78,8 +78,10 @@
                 <!-- Content-->
                 <div class="content">
                     <!-- section-->
-                    <section class="parallax-section dark-bg sec-half parallax-sec-half-right" data-scrollax-parent="true">
-                        <div class="bg par-elem"  data-bg="../images/bg/27.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+                    <section class="parallax-section dark-bg sec-half parallax-sec-half-right" data-scrollax-parent="true">                  
+                        {{ with .GetPage "toolbox"}}
+                        <div class="bg par-elem"  data-bg="{{.Params.bg_blog | absURL }}" data-scrollax="properties: { translateY: '30%' }"></div>       
+                        {{end }}
                         <div class="overlay"></div>
                         <div class="pattern-bg"></div>
                         <div class="container">
@@ -201,7 +203,9 @@
                                                 <h4 class="widget-title"><span>01.</span> Sobre mim</h4>
                                                 <div class="widget-container fl-wrap">
                                                     <div class="about-widget fl-wrap">
-                                                        <img src="../images/all/2.jpg" alt="">
+                                                      {{ with .GetPage "toolbox"}}
+                                                        <img src="{{ .Params.img_per | absURL }}" alt="">
+                                                      {{ end }}
                                                         <h5><a href="#">Thalis Rebouças</a></h5>
                                                         <div class="clearfix"></div>
                                                         <p>Graduando em Estatística.</p>
