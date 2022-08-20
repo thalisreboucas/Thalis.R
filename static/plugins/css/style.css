@@ -65,6 +65,7 @@ body {
 }
 ::-webkit-scrollbar-thumb {
     background: #323232;
+    border-radius: 20px;
 }
 
 /*-------------Scroll-Bar End ---------------------------------------*/
