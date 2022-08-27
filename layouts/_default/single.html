@@ -64,7 +64,7 @@
                     <nav class="nav-inner sound-nav" id="menu">
                         <ul>
                         {{ range site.Menus.main }}
-                   <li><a href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}" class="act-link">{{ .Name }}</a></li>
+                   <li><a href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}" >{{ .Name }}</a></li>
                        {{ end }}
                         </ul>
                     </nav>
