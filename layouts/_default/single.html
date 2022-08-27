@@ -53,7 +53,7 @@
                 </div>
             </header>
             <!--  header end -->
-             <!--  navigation bar -->
+                        <!--  navigation bar -->
             <div class="nav-overlay">
                 <div class="tooltip color-bg">Fechar</div>
             </div>
@@ -62,12 +62,10 @@
                 <div class="nav-title"><span>Menu</span></div>
                 <div class="nav-inner-wrap">
                     <nav class="nav-inner sound-nav" id="menu">
-                       <ul>
-                            <li><a href="../../../../#sec1" class="act-link">Home</a></li>
-                            <li><a href="../../../../#sec2">Sobre Mim</a></li>
-                            <li><a href="../../../../#sec3">Resumo</a></li>
-                            <li><a href="../../../../#sec6">Contato</a></li>
-                            <li><a href="../../../../post">Blog</a></li>
+                        <ul>
+                        {{ range site.Menus.main }}
+                   <li><a href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}" class="act-link">{{ .Name }}</a></li>
+                       {{ end }}
                         </ul>
                     </nav>
                 </div>

@@ -44,3 +44,25 @@ params:
       - "yaml"
      highlightjsTheme: "github"
      highlightjsVersion: 10.5.0 
+
+
+menu:
+       main:
+        - name: "Home"
+          url: /
+          weight: 1
+        - name: "Sobre Mim"
+          pre: '#'
+          url: sec2
+          weight: 2
+        - name: Resumo
+          pre: '#'
+          url: sec3
+          weight: 3
+        - name: Blog
+          url: post
+          weight: 4
+        - name: Contato
+          pre: '#'
+          url: sec6
+          weight: 5
