@@ -1619,7 +1619,7 @@ p.interact,
 	position: relative;
 }
 .hero-start-link span:before {
-	content: "Let's Start";
+	content: "VAMOS LÁ ?";
 	position: absolute;
 	overflow: hidden;
 	max-width: 0;
