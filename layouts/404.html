@@ -61,12 +61,13 @@
                 <div class="nav-title"><span>Menu</span></div>
                 <div class="nav-inner-wrap">
                     <nav class="nav-inner sound-nav" id="menu">
-                      <ul>
-                            <li><a href="#sec1" class="act-link">Home</a></li>
-                            <li><a href="#sec2">Sobre Mim</a></li>
-                            <li><a href="#sec3">Resumo</a></li>
-                            <li><a href="#sec6">Contato</a></li>
-                            <li><a href="post">Blog</a></li>
+                        <ul>
+                      {{ range first 1 site.Menus.main }}
+                   <li><a href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}" class="act-link">{{ .Name }}</a></li>
+                       {{ end }}
+                      {{ range last 4 site.Menus.main }}
+                   <li><a href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}" >{{ .Name }}</a></li>
+                       {{ end }}
                         </ul>
                     </nav>
                 </div>
@@ -88,7 +89,7 @@
                     </div>
                     <!-- section-->
                     <section class="parallax-section fw-parallax" data-scrollax-parent="true">
-                        <div class="bg par-elem"  data-bg="images/bg/16.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+                        <div class="bg par-elem"  data-bg="{{ site.Params.pg404 | absURL }}" data-scrollax="properties: { translateY: '30%' }"></div>
                         <div class="overlay"></div>
                         <div class="container">
                             <div class="error-wrap">
@@ -177,9 +178,10 @@
             <!--   content end -->
         </div>
         <!-- Main end -->
-        <!--=============== scripts  ===============-->
-        <script type="text/javascript" src="plugins/js/jquery.min.js"></script>
-        <script type="text/javascript" src="plugins/js/plugins.js"></script>
-        <script type="text/javascript" src="plugins/js/scripts.js"></script>
+        <!--=============== JS scripts  ===============-->
+          {{ "<!-- JS Plugins -->" | safeHTML }}
+           {{ range site.Params.plugins.js}}
+           <script src="{{ .link | absURL }}"></script>
+          {{ end }}
     </body>
 </html>
