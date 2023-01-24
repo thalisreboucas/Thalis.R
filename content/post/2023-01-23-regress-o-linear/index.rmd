@@ -136,7 +136,6 @@ plot(correlation(mtcars, partial = TRUE)) +
 
 
 ```{r}
-
 # Tabela de correlação
 t1 <- correlation(mtcars) 
 

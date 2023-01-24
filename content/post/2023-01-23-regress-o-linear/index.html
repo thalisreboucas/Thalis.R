@@ -301,69 +301,579 @@ report_table(mtcars) %&gt;% knitr::kable(digits = 3)</code></pre>
 <pre class="r"><code># Vendo as correlações
 plot(correlation(mtcars, partial = TRUE)) +
   scale_edge_color_continuous(low = &quot;#000000&quot;, high = &quot;#f55b14&quot;) </code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
-<pre class="r"><code>correlation(mtcars)  </code></pre>
-<pre><code>## # Correlation Matrix (pearson-method)
-## 
-## Parameter1 | Parameter2 |     r |         95% CI | t(30) |         p
-## --------------------------------------------------------------------
-## mpg        |        cyl | -0.85 | [-0.93, -0.72] | -8.92 | &lt; .001***
-## mpg        |       disp | -0.85 | [-0.92, -0.71] | -8.75 | &lt; .001***
-## mpg        |         hp | -0.78 | [-0.89, -0.59] | -6.74 | &lt; .001***
-## mpg        |       drat |  0.68 | [ 0.44,  0.83] |  5.10 | &lt; .001***
-## mpg        |         wt | -0.87 | [-0.93, -0.74] | -9.56 | &lt; .001***
-## mpg        |       qsec |  0.42 | [ 0.08,  0.67] |  2.53 | 0.222    
-## mpg        |         vs |  0.66 | [ 0.41,  0.82] |  4.86 | 0.001**  
-## mpg        |         am |  0.60 | [ 0.32,  0.78] |  4.11 | 0.008**  
-## mpg        |       gear |  0.48 | [ 0.16,  0.71] |  3.00 | 0.097    
-## mpg        |       carb | -0.55 | [-0.75, -0.25] | -3.62 | 0.024*   
-## cyl        |       disp |  0.90 | [ 0.81,  0.95] | 11.45 | &lt; .001***
-## cyl        |         hp |  0.83 | [ 0.68,  0.92] |  8.23 | &lt; .001***
-## cyl        |       drat | -0.70 | [-0.84, -0.46] | -5.37 | &lt; .001***
-## cyl        |         wt |  0.78 | [ 0.60,  0.89] |  6.88 | &lt; .001***
-## cyl        |       qsec | -0.59 | [-0.78, -0.31] | -4.02 | 0.010*   
-## cyl        |         vs | -0.81 | [-0.90, -0.64] | -7.59 | &lt; .001***
-## cyl        |         am | -0.52 | [-0.74, -0.21] | -3.36 | 0.043*   
-## cyl        |       gear | -0.49 | [-0.72, -0.17] | -3.10 | 0.079    
-## cyl        |       carb |  0.53 | [ 0.22,  0.74] |  3.40 | 0.041*   
-## disp       |         hp |  0.79 | [ 0.61,  0.89] |  7.08 | &lt; .001***
-## disp       |       drat | -0.71 | [-0.85, -0.48] | -5.53 | &lt; .001***
-## disp       |         wt |  0.89 | [ 0.78,  0.94] | 10.58 | &lt; .001***
-## disp       |       qsec | -0.43 | [-0.68, -0.10] | -2.64 | 0.197    
-## disp       |         vs | -0.71 | [-0.85, -0.48] | -5.53 | &lt; .001***
-## disp       |         am | -0.59 | [-0.78, -0.31] | -4.02 | 0.010*   
-## disp       |       gear | -0.56 | [-0.76, -0.26] | -3.66 | 0.023*   
-## disp       |       carb |  0.39 | [ 0.05,  0.65] |  2.35 | 0.303    
-## hp         |       drat | -0.45 | [-0.69, -0.12] | -2.75 | 0.170    
-## hp         |         wt |  0.66 | [ 0.40,  0.82] |  4.80 | 0.001**  
-## hp         |       qsec | -0.71 | [-0.85, -0.48] | -5.49 | &lt; .001***
-## hp         |         vs | -0.72 | [-0.86, -0.50] | -5.73 | &lt; .001***
-## hp         |         am | -0.24 | [-0.55,  0.12] | -1.37 | &gt; .999   
-## hp         |       gear | -0.13 | [-0.45,  0.23] | -0.69 | &gt; .999   
-## hp         |       carb |  0.75 | [ 0.54,  0.87] |  6.21 | &lt; .001***
-## drat       |         wt | -0.71 | [-0.85, -0.48] | -5.56 | &lt; .001***
-## drat       |       qsec |  0.09 | [-0.27,  0.43] |  0.50 | &gt; .999   
-## drat       |         vs |  0.44 | [ 0.11,  0.68] |  2.69 | 0.187    
-## drat       |         am |  0.71 | [ 0.48,  0.85] |  5.57 | &lt; .001***
-## drat       |       gear |  0.70 | [ 0.46,  0.84] |  5.36 | &lt; .001***
-## drat       |       carb | -0.09 | [-0.43,  0.27] | -0.50 | &gt; .999   
-## wt         |       qsec | -0.17 | [-0.49,  0.19] | -0.97 | &gt; .999   
-## wt         |         vs | -0.55 | [-0.76, -0.26] | -3.65 | 0.023*   
-## wt         |         am | -0.69 | [-0.84, -0.45] | -5.26 | &lt; .001***
-## wt         |       gear | -0.58 | [-0.77, -0.29] | -3.93 | 0.012*   
-## wt         |       carb |  0.43 | [ 0.09,  0.68] |  2.59 | 0.205    
-## qsec       |         vs |  0.74 | [ 0.53,  0.87] |  6.11 | &lt; .001***
-## qsec       |         am | -0.23 | [-0.54,  0.13] | -1.29 | &gt; .999   
-## qsec       |       gear | -0.21 | [-0.52,  0.15] | -1.19 | &gt; .999   
-## qsec       |       carb | -0.66 | [-0.82, -0.40] | -4.76 | 0.001**  
-## vs         |         am |  0.17 | [-0.19,  0.49] |  0.94 | &gt; .999   
-## vs         |       gear |  0.21 | [-0.15,  0.52] |  1.15 | &gt; .999   
-## vs         |       carb | -0.57 | [-0.77, -0.28] | -3.80 | 0.017*   
-## am         |       gear |  0.79 | [ 0.62,  0.89] |  7.16 | &lt; .001***
-## am         |       carb |  0.06 | [-0.30,  0.40] |  0.32 | &gt; .999   
-## gear       |       carb |  0.27 | [-0.08,  0.57] |  1.56 | &gt; .999   
-## 
-## p-value adjustment method: Holm (1979)
-## Observations: 32</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="864" /></p>
+<pre class="r"><code># Tabela de correlação
+t1 &lt;- correlation(mtcars) 
+
+# transformando em um tablea apresentavel
+t1 %&gt;%  
+  dplyr::select(-df_error,-Method,-n_Obs) %&gt;%
+  knitr::kable(digits = 3)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Parameter1</th>
+<th align="left">Parameter2</th>
+<th align="right">r</th>
+<th align="right">CI</th>
+<th align="right">CI_low</th>
+<th align="right">CI_high</th>
+<th align="right">t</th>
+<th align="right">p</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">mpg</td>
+<td align="left">cyl</td>
+<td align="right">-0.852</td>
+<td align="right">0.95</td>
+<td align="right">-0.926</td>
+<td align="right">-0.716</td>
+<td align="right">-8.920</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">mpg</td>
+<td align="left">disp</td>
+<td align="right">-0.848</td>
+<td align="right">0.95</td>
+<td align="right">-0.923</td>
+<td align="right">-0.708</td>
+<td align="right">-8.747</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">mpg</td>
+<td align="left">hp</td>
+<td align="right">-0.776</td>
+<td align="right">0.95</td>
+<td align="right">-0.885</td>
+<td align="right">-0.586</td>
+<td align="right">-6.742</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">mpg</td>
+<td align="left">drat</td>
+<td align="right">0.681</td>
+<td align="right">0.95</td>
+<td align="right">0.436</td>
+<td align="right">0.832</td>
+<td align="right">5.096</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="odd">
+<td align="left">mpg</td>
+<td align="left">wt</td>
+<td align="right">-0.868</td>
+<td align="right">0.95</td>
+<td align="right">-0.934</td>
+<td align="right">-0.744</td>
+<td align="right">-9.559</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">mpg</td>
+<td align="left">qsec</td>
+<td align="right">0.419</td>
+<td align="right">0.95</td>
+<td align="right">0.082</td>
+<td align="right">0.670</td>
+<td align="right">2.525</td>
+<td align="right">0.222</td>
+</tr>
+<tr class="odd">
+<td align="left">mpg</td>
+<td align="left">vs</td>
+<td align="right">0.664</td>
+<td align="right">0.95</td>
+<td align="right">0.410</td>
+<td align="right">0.822</td>
+<td align="right">4.864</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="even">
+<td align="left">mpg</td>
+<td align="left">am</td>
+<td align="right">0.600</td>
+<td align="right">0.95</td>
+<td align="right">0.318</td>
+<td align="right">0.784</td>
+<td align="right">4.106</td>
+<td align="right">0.008</td>
+</tr>
+<tr class="odd">
+<td align="left">mpg</td>
+<td align="left">gear</td>
+<td align="right">0.480</td>
+<td align="right">0.95</td>
+<td align="right">0.158</td>
+<td align="right">0.710</td>
+<td align="right">2.999</td>
+<td align="right">0.097</td>
+</tr>
+<tr class="even">
+<td align="left">mpg</td>
+<td align="left">carb</td>
+<td align="right">-0.551</td>
+<td align="right">0.95</td>
+<td align="right">-0.755</td>
+<td align="right">-0.250</td>
+<td align="right">-3.616</td>
+<td align="right">0.024</td>
+</tr>
+<tr class="odd">
+<td align="left">cyl</td>
+<td align="left">disp</td>
+<td align="right">0.902</td>
+<td align="right">0.95</td>
+<td align="right">0.807</td>
+<td align="right">0.951</td>
+<td align="right">11.445</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">cyl</td>
+<td align="left">hp</td>
+<td align="right">0.832</td>
+<td align="right">0.95</td>
+<td align="right">0.682</td>
+<td align="right">0.915</td>
+<td align="right">8.229</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">cyl</td>
+<td align="left">drat</td>
+<td align="right">-0.700</td>
+<td align="right">0.95</td>
+<td align="right">-0.843</td>
+<td align="right">-0.465</td>
+<td align="right">-5.368</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">cyl</td>
+<td align="left">wt</td>
+<td align="right">0.782</td>
+<td align="right">0.95</td>
+<td align="right">0.597</td>
+<td align="right">0.889</td>
+<td align="right">6.883</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">cyl</td>
+<td align="left">qsec</td>
+<td align="right">-0.591</td>
+<td align="right">0.95</td>
+<td align="right">-0.779</td>
+<td align="right">-0.306</td>
+<td align="right">-4.015</td>
+<td align="right">0.010</td>
+</tr>
+<tr class="even">
+<td align="left">cyl</td>
+<td align="left">vs</td>
+<td align="right">-0.811</td>
+<td align="right">0.95</td>
+<td align="right">-0.904</td>
+<td align="right">-0.644</td>
+<td align="right">-7.587</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">cyl</td>
+<td align="left">am</td>
+<td align="right">-0.523</td>
+<td align="right">0.95</td>
+<td align="right">-0.737</td>
+<td align="right">-0.213</td>
+<td align="right">-3.357</td>
+<td align="right">0.043</td>
+</tr>
+<tr class="even">
+<td align="left">cyl</td>
+<td align="left">gear</td>
+<td align="right">-0.493</td>
+<td align="right">0.95</td>
+<td align="right">-0.718</td>
+<td align="right">-0.174</td>
+<td align="right">-3.101</td>
+<td align="right">0.079</td>
+</tr>
+<tr class="odd">
+<td align="left">cyl</td>
+<td align="left">carb</td>
+<td align="right">0.527</td>
+<td align="right">0.95</td>
+<td align="right">0.218</td>
+<td align="right">0.740</td>
+<td align="right">3.396</td>
+<td align="right">0.041</td>
+</tr>
+<tr class="even">
+<td align="left">disp</td>
+<td align="left">hp</td>
+<td align="right">0.791</td>
+<td align="right">0.95</td>
+<td align="right">0.611</td>
+<td align="right">0.893</td>
+<td align="right">7.080</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">disp</td>
+<td align="left">drat</td>
+<td align="right">-0.710</td>
+<td align="right">0.95</td>
+<td align="right">-0.849</td>
+<td align="right">-0.481</td>
+<td align="right">-5.526</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">disp</td>
+<td align="left">wt</td>
+<td align="right">0.888</td>
+<td align="right">0.95</td>
+<td align="right">0.781</td>
+<td align="right">0.944</td>
+<td align="right">10.576</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">disp</td>
+<td align="left">qsec</td>
+<td align="right">-0.434</td>
+<td align="right">0.95</td>
+<td align="right">-0.680</td>
+<td align="right">-0.100</td>
+<td align="right">-2.636</td>
+<td align="right">0.197</td>
+</tr>
+<tr class="even">
+<td align="left">disp</td>
+<td align="left">vs</td>
+<td align="right">-0.710</td>
+<td align="right">0.95</td>
+<td align="right">-0.849</td>
+<td align="right">-0.481</td>
+<td align="right">-5.529</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">disp</td>
+<td align="left">am</td>
+<td align="right">-0.591</td>
+<td align="right">0.95</td>
+<td align="right">-0.779</td>
+<td align="right">-0.306</td>
+<td align="right">-4.015</td>
+<td align="right">0.010</td>
+</tr>
+<tr class="even">
+<td align="left">disp</td>
+<td align="left">gear</td>
+<td align="right">-0.556</td>
+<td align="right">0.95</td>
+<td align="right">-0.758</td>
+<td align="right">-0.257</td>
+<td align="right">-3.660</td>
+<td align="right">0.023</td>
+</tr>
+<tr class="odd">
+<td align="left">disp</td>
+<td align="left">carb</td>
+<td align="right">0.395</td>
+<td align="right">0.95</td>
+<td align="right">0.054</td>
+<td align="right">0.654</td>
+<td align="right">2.355</td>
+<td align="right">0.303</td>
+</tr>
+<tr class="even">
+<td align="left">hp</td>
+<td align="left">drat</td>
+<td align="right">-0.449</td>
+<td align="right">0.95</td>
+<td align="right">-0.690</td>
+<td align="right">-0.119</td>
+<td align="right">-2.750</td>
+<td align="right">0.170</td>
+</tr>
+<tr class="odd">
+<td align="left">hp</td>
+<td align="left">wt</td>
+<td align="right">0.659</td>
+<td align="right">0.95</td>
+<td align="right">0.403</td>
+<td align="right">0.819</td>
+<td align="right">4.796</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="even">
+<td align="left">hp</td>
+<td align="left">qsec</td>
+<td align="right">-0.708</td>
+<td align="right">0.95</td>
+<td align="right">-0.848</td>
+<td align="right">-0.477</td>
+<td align="right">-5.495</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">hp</td>
+<td align="left">vs</td>
+<td align="right">-0.723</td>
+<td align="right">0.95</td>
+<td align="right">-0.856</td>
+<td align="right">-0.501</td>
+<td align="right">-5.734</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">hp</td>
+<td align="left">am</td>
+<td align="right">-0.243</td>
+<td align="right">0.95</td>
+<td align="right">-0.546</td>
+<td align="right">0.115</td>
+<td align="right">-1.373</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="odd">
+<td align="left">hp</td>
+<td align="left">gear</td>
+<td align="right">-0.126</td>
+<td align="right">0.95</td>
+<td align="right">-0.454</td>
+<td align="right">0.233</td>
+<td align="right">-0.694</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="even">
+<td align="left">hp</td>
+<td align="left">carb</td>
+<td align="right">0.750</td>
+<td align="right">0.95</td>
+<td align="right">0.543</td>
+<td align="right">0.871</td>
+<td align="right">6.207</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">drat</td>
+<td align="left">wt</td>
+<td align="right">-0.712</td>
+<td align="right">0.95</td>
+<td align="right">-0.850</td>
+<td align="right">-0.484</td>
+<td align="right">-5.561</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">drat</td>
+<td align="left">qsec</td>
+<td align="right">0.091</td>
+<td align="right">0.95</td>
+<td align="right">-0.266</td>
+<td align="right">0.426</td>
+<td align="right">0.502</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="odd">
+<td align="left">drat</td>
+<td align="left">vs</td>
+<td align="right">0.440</td>
+<td align="right">0.95</td>
+<td align="right">0.108</td>
+<td align="right">0.684</td>
+<td align="right">2.686</td>
+<td align="right">0.187</td>
+</tr>
+<tr class="even">
+<td align="left">drat</td>
+<td align="left">am</td>
+<td align="right">0.713</td>
+<td align="right">0.95</td>
+<td align="right">0.484</td>
+<td align="right">0.850</td>
+<td align="right">5.565</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">drat</td>
+<td align="left">gear</td>
+<td align="right">0.700</td>
+<td align="right">0.95</td>
+<td align="right">0.464</td>
+<td align="right">0.843</td>
+<td align="right">5.363</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">drat</td>
+<td align="left">carb</td>
+<td align="right">-0.091</td>
+<td align="right">0.95</td>
+<td align="right">-0.426</td>
+<td align="right">0.266</td>
+<td align="right">-0.499</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="odd">
+<td align="left">wt</td>
+<td align="left">qsec</td>
+<td align="right">-0.175</td>
+<td align="right">0.95</td>
+<td align="right">-0.493</td>
+<td align="right">0.185</td>
+<td align="right">-0.972</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="even">
+<td align="left">wt</td>
+<td align="left">vs</td>
+<td align="right">-0.555</td>
+<td align="right">0.95</td>
+<td align="right">-0.757</td>
+<td align="right">-0.256</td>
+<td align="right">-3.654</td>
+<td align="right">0.023</td>
+</tr>
+<tr class="odd">
+<td align="left">wt</td>
+<td align="left">am</td>
+<td align="right">-0.692</td>
+<td align="right">0.95</td>
+<td align="right">-0.839</td>
+<td align="right">-0.453</td>
+<td align="right">-5.258</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">wt</td>
+<td align="left">gear</td>
+<td align="right">-0.583</td>
+<td align="right">0.95</td>
+<td align="right">-0.774</td>
+<td align="right">-0.294</td>
+<td align="right">-3.933</td>
+<td align="right">0.012</td>
+</tr>
+<tr class="odd">
+<td align="left">wt</td>
+<td align="left">carb</td>
+<td align="right">0.428</td>
+<td align="right">0.95</td>
+<td align="right">0.093</td>
+<td align="right">0.676</td>
+<td align="right">2.591</td>
+<td align="right">0.205</td>
+</tr>
+<tr class="even">
+<td align="left">qsec</td>
+<td align="left">vs</td>
+<td align="right">0.745</td>
+<td align="right">0.95</td>
+<td align="right">0.535</td>
+<td align="right">0.868</td>
+<td align="right">6.109</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="odd">
+<td align="left">qsec</td>
+<td align="left">am</td>
+<td align="right">-0.230</td>
+<td align="right">0.95</td>
+<td align="right">-0.536</td>
+<td align="right">0.129</td>
+<td align="right">-1.294</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="even">
+<td align="left">qsec</td>
+<td align="left">gear</td>
+<td align="right">-0.213</td>
+<td align="right">0.95</td>
+<td align="right">-0.523</td>
+<td align="right">0.147</td>
+<td align="right">-1.192</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="odd">
+<td align="left">qsec</td>
+<td align="left">carb</td>
+<td align="right">-0.656</td>
+<td align="right">0.95</td>
+<td align="right">-0.818</td>
+<td align="right">-0.399</td>
+<td align="right">-4.764</td>
+<td align="right">0.001</td>
+</tr>
+<tr class="even">
+<td align="left">vs</td>
+<td align="left">am</td>
+<td align="right">0.168</td>
+<td align="right">0.95</td>
+<td align="right">-0.192</td>
+<td align="right">0.488</td>
+<td align="right">0.935</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="odd">
+<td align="left">vs</td>
+<td align="left">gear</td>
+<td align="right">0.206</td>
+<td align="right">0.95</td>
+<td align="right">-0.154</td>
+<td align="right">0.518</td>
+<td align="right">1.153</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="even">
+<td align="left">vs</td>
+<td align="left">carb</td>
+<td align="right">-0.570</td>
+<td align="right">0.95</td>
+<td align="right">-0.766</td>
+<td align="right">-0.276</td>
+<td align="right">-3.796</td>
+<td align="right">0.017</td>
+</tr>
+<tr class="odd">
+<td align="left">am</td>
+<td align="left">gear</td>
+<td align="right">0.794</td>
+<td align="right">0.95</td>
+<td align="right">0.616</td>
+<td align="right">0.895</td>
+<td align="right">7.155</td>
+<td align="right">0.000</td>
+</tr>
+<tr class="even">
+<td align="left">am</td>
+<td align="left">carb</td>
+<td align="right">0.058</td>
+<td align="right">0.95</td>
+<td align="right">-0.297</td>
+<td align="right">0.398</td>
+<td align="right">0.316</td>
+<td align="right">1.000</td>
+</tr>
+<tr class="odd">
+<td align="left">gear</td>
+<td align="left">carb</td>
+<td align="right">0.274</td>
+<td align="right">0.95</td>
+<td align="right">-0.083</td>
+<td align="right">0.568</td>
+<td align="right">1.561</td>
+<td align="right">1.000</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
