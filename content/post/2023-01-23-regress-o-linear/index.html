@@ -65,7 +65,7 @@ Já na multipla não temos mais uma reta e sim um <em>Hiperplano</em> ,pronto fi
 <p>Na forma matricial o <span class="math inline">\(\beta\)</span> é dado pela seguinte formula :</p>
 <p><span class="math display">\[\beta = (X^TX)^{-1}X^Ty
 \]</span></p>
-<p>Todas as provas deste metodo é disponibilizado neste site <a href="https://statproofbook.github.io/I/ToC" class="uri">https://statproofbook.github.io/I/ToC</a> na seção 1.4 e na seçãp 1.5 tem a provas em matrizes na forma multipla.O Teorema Gauss-Markov garante (embora indiretamente) que o estimador de mínimos quadrados é o estimador não-enviesado de mínima variância linear na variável resposta,caso siga uma distribuição normal.</p>
+<p>Todas as provas deste metodo é disponibilizado neste site <a href="https://statproofbook.github.io/I/ToC">statproofbook</a> na seção 1.4 e na seçãp 1.5 tem a provas em matrizes na forma multipla.O Teorema Gauss-Markov garante (embora indiretamente) que o estimador de mínimos quadrados é o estimador não-enviesado de mínima variância linear na variável resposta,caso siga uma distribuição normal.</p>
 </div>
 <div id="formula-exata-dos-parâmetros" class="section level4">
 <h4>Formula exata dos Parâmetros:</h4>
@@ -100,11 +100,11 @@ Já na multipla não temos mais uma reta e sim um <em>Hiperplano</em> ,pronto fi
 <div id="regressão-no-r" class="section level3">
 <h3>Regressão no R :</h3>
 <p>Para fazer Regressão no R vamos precisar dos seguintes pacotes o <code>easystats</code> ,<code>tidyverse</code>,<code>tidymodels</code> e <code>plotly</code>. A regressão é feita pelo comando <em>lm(y~x)</em> e no caso multiplo é só somar mais um variavel explicativa <em>lm(y ~ x1+ x2)</em>.</p>
-<p>Vamos pegar uma base como exemplo,usando a função <code>report()</code> do easystats para descrever a base de dados <em>mtcars</em></p>
+<p>Vamos pegar uma base como exemplo,usando a função <code>report()</code> do easystats para descrever a base de dados <a href="https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/mtcars">mtcars</a></p>
 <pre class="r"><code># Pacote para abrir pacotes,atualizar e instalar os que não tem.
 library(pacman)
 #  chamando os pacotes
-pacman::p_load(easystats,tidyverse,tidymodels,plotly)
+pacman::p_load(easystats,tidyverse,tidymodels,tidygraph,plotly)
 
 # base de dados mtcars
 
@@ -298,5 +298,72 @@ report_table(mtcars) %&gt;% knitr::kable(digits = 3)</code></pre>
 </tr>
 </tbody>
 </table>
+<pre class="r"><code># Vendo as correlações
+plot(correlation(mtcars, partial = TRUE)) +
+  scale_edge_color_continuous(low = &quot;#000000&quot;, high = &quot;#f55b14&quot;) </code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<pre class="r"><code>correlation(mtcars)  </code></pre>
+<pre><code>## # Correlation Matrix (pearson-method)
+## 
+## Parameter1 | Parameter2 |     r |         95% CI | t(30) |         p
+## --------------------------------------------------------------------
+## mpg        |        cyl | -0.85 | [-0.93, -0.72] | -8.92 | &lt; .001***
+## mpg        |       disp | -0.85 | [-0.92, -0.71] | -8.75 | &lt; .001***
+## mpg        |         hp | -0.78 | [-0.89, -0.59] | -6.74 | &lt; .001***
+## mpg        |       drat |  0.68 | [ 0.44,  0.83] |  5.10 | &lt; .001***
+## mpg        |         wt | -0.87 | [-0.93, -0.74] | -9.56 | &lt; .001***
+## mpg        |       qsec |  0.42 | [ 0.08,  0.67] |  2.53 | 0.222    
+## mpg        |         vs |  0.66 | [ 0.41,  0.82] |  4.86 | 0.001**  
+## mpg        |         am |  0.60 | [ 0.32,  0.78] |  4.11 | 0.008**  
+## mpg        |       gear |  0.48 | [ 0.16,  0.71] |  3.00 | 0.097    
+## mpg        |       carb | -0.55 | [-0.75, -0.25] | -3.62 | 0.024*   
+## cyl        |       disp |  0.90 | [ 0.81,  0.95] | 11.45 | &lt; .001***
+## cyl        |         hp |  0.83 | [ 0.68,  0.92] |  8.23 | &lt; .001***
+## cyl        |       drat | -0.70 | [-0.84, -0.46] | -5.37 | &lt; .001***
+## cyl        |         wt |  0.78 | [ 0.60,  0.89] |  6.88 | &lt; .001***
+## cyl        |       qsec | -0.59 | [-0.78, -0.31] | -4.02 | 0.010*   
+## cyl        |         vs | -0.81 | [-0.90, -0.64] | -7.59 | &lt; .001***
+## cyl        |         am | -0.52 | [-0.74, -0.21] | -3.36 | 0.043*   
+## cyl        |       gear | -0.49 | [-0.72, -0.17] | -3.10 | 0.079    
+## cyl        |       carb |  0.53 | [ 0.22,  0.74] |  3.40 | 0.041*   
+## disp       |         hp |  0.79 | [ 0.61,  0.89] |  7.08 | &lt; .001***
+## disp       |       drat | -0.71 | [-0.85, -0.48] | -5.53 | &lt; .001***
+## disp       |         wt |  0.89 | [ 0.78,  0.94] | 10.58 | &lt; .001***
+## disp       |       qsec | -0.43 | [-0.68, -0.10] | -2.64 | 0.197    
+## disp       |         vs | -0.71 | [-0.85, -0.48] | -5.53 | &lt; .001***
+## disp       |         am | -0.59 | [-0.78, -0.31] | -4.02 | 0.010*   
+## disp       |       gear | -0.56 | [-0.76, -0.26] | -3.66 | 0.023*   
+## disp       |       carb |  0.39 | [ 0.05,  0.65] |  2.35 | 0.303    
+## hp         |       drat | -0.45 | [-0.69, -0.12] | -2.75 | 0.170    
+## hp         |         wt |  0.66 | [ 0.40,  0.82] |  4.80 | 0.001**  
+## hp         |       qsec | -0.71 | [-0.85, -0.48] | -5.49 | &lt; .001***
+## hp         |         vs | -0.72 | [-0.86, -0.50] | -5.73 | &lt; .001***
+## hp         |         am | -0.24 | [-0.55,  0.12] | -1.37 | &gt; .999   
+## hp         |       gear | -0.13 | [-0.45,  0.23] | -0.69 | &gt; .999   
+## hp         |       carb |  0.75 | [ 0.54,  0.87] |  6.21 | &lt; .001***
+## drat       |         wt | -0.71 | [-0.85, -0.48] | -5.56 | &lt; .001***
+## drat       |       qsec |  0.09 | [-0.27,  0.43] |  0.50 | &gt; .999   
+## drat       |         vs |  0.44 | [ 0.11,  0.68] |  2.69 | 0.187    
+## drat       |         am |  0.71 | [ 0.48,  0.85] |  5.57 | &lt; .001***
+## drat       |       gear |  0.70 | [ 0.46,  0.84] |  5.36 | &lt; .001***
+## drat       |       carb | -0.09 | [-0.43,  0.27] | -0.50 | &gt; .999   
+## wt         |       qsec | -0.17 | [-0.49,  0.19] | -0.97 | &gt; .999   
+## wt         |         vs | -0.55 | [-0.76, -0.26] | -3.65 | 0.023*   
+## wt         |         am | -0.69 | [-0.84, -0.45] | -5.26 | &lt; .001***
+## wt         |       gear | -0.58 | [-0.77, -0.29] | -3.93 | 0.012*   
+## wt         |       carb |  0.43 | [ 0.09,  0.68] |  2.59 | 0.205    
+## qsec       |         vs |  0.74 | [ 0.53,  0.87] |  6.11 | &lt; .001***
+## qsec       |         am | -0.23 | [-0.54,  0.13] | -1.29 | &gt; .999   
+## qsec       |       gear | -0.21 | [-0.52,  0.15] | -1.19 | &gt; .999   
+## qsec       |       carb | -0.66 | [-0.82, -0.40] | -4.76 | 0.001**  
+## vs         |         am |  0.17 | [-0.19,  0.49] |  0.94 | &gt; .999   
+## vs         |       gear |  0.21 | [-0.15,  0.52] |  1.15 | &gt; .999   
+## vs         |       carb | -0.57 | [-0.77, -0.28] | -3.80 | 0.017*   
+## am         |       gear |  0.79 | [ 0.62,  0.89] |  7.16 | &lt; .001***
+## am         |       carb |  0.06 | [-0.30,  0.40] |  0.32 | &gt; .999   
+## gear       |       carb |  0.27 | [-0.08,  0.57] |  1.56 | &gt; .999   
+## 
+## p-value adjustment method: Holm (1979)
+## Observations: 32</code></pre>
 </div>
 </div>

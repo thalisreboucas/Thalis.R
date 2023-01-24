@@ -73,7 +73,7 @@ Na forma matricial o $\beta$ é dado pela seguinte formula :
 \]
 
 
-Todas as provas deste metodo é disponibilizado neste site https://statproofbook.github.io/I/ToC na seção 1.4 e na seçãp 1.5 tem a provas em matrizes na forma multipla.O Teorema Gauss-Markov garante (embora indiretamente) que o estimador de mínimos quadrados é o estimador não-enviesado de mínima variância linear na variável resposta,caso siga uma distribuição normal.
+Todas as provas deste metodo é disponibilizado neste site [statproofbook](https://statproofbook.github.io/I/ToC) na seção 1.4 e na seçãp 1.5 tem a provas em matrizes na forma multipla.O Teorema Gauss-Markov garante (embora indiretamente) que o estimador de mínimos quadrados é o estimador não-enviesado de mínima variância linear na variável resposta,caso siga uma distribuição normal.
 
 #### Formula exata dos Parâmetros:
 
@@ -112,13 +112,13 @@ teste modo temos que a formula exata,seguindo normalidade, é dada por :
 
 Para fazer Regressão no R vamos precisar dos seguintes pacotes o `easystats` ,`tidyverse`,`tidymodels` e `plotly`. A regressão é feita pelo comando *lm(y~x)* e no caso multiplo é só somar mais um variavel explicativa *lm(y ~ x1+ x2)*.
 
-Vamos pegar uma base como exemplo,usando a função `report()` do easystats para descrever a base de dados *mtcars*
+Vamos pegar uma base como exemplo,usando a função `report()` do easystats para descrever a base de dados [mtcars](https://www.rdocumentation.org/packages/datasets/versions/3.6.2/topics/mtcars)
 
 ```{r}
 # Pacote para abrir pacotes,atualizar e instalar os que não tem.
 library(pacman)
 #  chamando os pacotes
-pacman::p_load(easystats,tidyverse,tidymodels,plotly)
+pacman::p_load(easystats,tidyverse,tidymodels,tidygraph,plotly)
 
 # base de dados mtcars
 
@@ -127,4 +127,15 @@ report_table(mtcars) %>% knitr::kable(digits = 3)
 
 ```
  
+
+```{r}
+# Vendo as correlações
+plot(correlation(mtcars, partial = TRUE)) +
+  scale_edge_color_continuous(low = "#000000", high = "#f55b14") 
+```
+
+
+```{r}
+correlation(mtcars)  
+```
 
