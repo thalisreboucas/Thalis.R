@@ -1,0 +1,130 @@
+---
+title: Regressão linear
+author: 'Thalis Rebouças'
+date: '2023-01-23'
+slug: regress-o-linear
+categories: R
+tags: 
+- R
+- Machine Learning
+description: AL.EM
+image: images/portfolio/rgl.png
+draft: no
+---
+
+## Regressão Linear 
+
+### O que é isso ?
+
+A regressão é de maneira geral no caso simples é uma formula que você consegue gerar uma reta e essa reta descreve o comportamento de uma relação linear nos parâmetros e assim , conseguir entender o $\alpha$ e o $\beta$ que gera a reta assim conseguindo prever os possiveis valores ou *(depende de normalidade essa parte)* fazer inferência de `segunda ordem`. 
+Já na multipla não temos mais uma reta e sim um *Hiperplano* ,pronto finalizamos o resumo conceito, bora para as formulas :
+
+### Importante para fazer Regressão :
+
+#### Linear Simples :
+A coisa mais importante para fazer regressão são seus presupostos neste caso são cinco :
+
+1. A função de Regressão é Linear nos parâmtros.($\alpha$ e $\beta$)
+2. Os valores dos $x_i$ são fixos e conhecidos ,não são uma variável aleatória.
+3. Os erros tem média 0, ou seja, $E[e_i|x_i] = 0$
+4. Os erros tem varância 1 e constante (Homoscesdaticidade), ou seja, $Var[e_i|x_i] = \sigma^2$
+5. Os erros são não correlacionados, $Cov(e_i,e_j) = E[e_ie_j]=0$
+
+A formula é dado por :
+
+\[y_i = \alpha + \beta x_i + e_i\ \ i =1,...,n
+\]
+
+#### Linear Multipla :
+
+1. A função de Regressão é Linear nos parâmtros.($\alpha$ e $\beta_n$)
+2. Os valores dos $x_i$ são fixos e conhecidos, a matriz de especificação $X(n\ \times\ p) $ sendo não aleatória e de posto completo.
+3. Os erros tem média 0, ou seja, $E[e_i|x_i] = 0$
+4. Os erros tem varância 1 e constante (Homoscesdaticidade), ou seja, $Var[e_i|x_i] = \sigma^2I_n$
+5. Os erros são não correlacionados, $Cov(e_i,e_j) = E[e_ie_j]=0$
+
+\[y_i = \alpha + \beta_1 x_{1i} +\beta_2 x_{2i} + e_i\ \ i =1,...,n
+\]
+
+
+#### Métodos dos Mínimos Quadrados:
+
+Esse é o método padrão que o software R usa e com isso ele estima a melhor retá que minimiza a distância do valor observado para o valor ajustado da reta.
+
+#### Estimação dos Parâmentros:
+
+Neste caso o $\alpha$ estimado da reta é dada pela seguinte formula :
+
+\[\alpha = \bar{y}-\beta \bar{x}
+\]
+
+Onde o $\bar{y}$ é a média amostral de $Y$ ,que é a variável resposta e $\bar{x}$ é a média dos $x_i$,que são as variáveis explicativas.
+
+Agora para estimar o $\beta$ temos a seguinte formula :
+
+\[\beta = \dfrac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^{n}(x_i-\bar{x})^2} = \dfrac{Sxy}{Sxx}
+\]
+
+
+Na forma matricial o $\beta$ é dado pela seguinte formula :
+
+
+\[\beta = (X^TX)^{-1}X^Ty
+\]
+
+
+Todas as provas deste metodo é disponibilizado neste site https://statproofbook.github.io/I/ToC na seção 1.4 e na seçãp 1.5 tem a provas em matrizes na forma multipla.O Teorema Gauss-Markov garante (embora indiretamente) que o estimador de mínimos quadrados é o estimador não-enviesado de mínima variância linear na variável resposta,caso siga uma distribuição normal.
+
+#### Formula exata dos Parâmetros:
+
+Uma das coisas importantes da estatística é saber a sua média e também a sua variânça,por isso, temos que :
+
+1. Variância do $\alpha$ :
+\[Var[\hat{\alpha}] =\sigma^2(\frac{1}{n}+\frac{\bar{x}_n^2}{Sxx}) 
+\]
+
+2. Variância do $\beta$ :
+\[Var[\hat{\beta}] = \dfrac{\sigma^2}{Sxx}
+\]
+
+3. Covariância
+\[Cov(\hat{\alpha},\hat{\beta})= -\dfrac{\sigma^2\hat{x}_n}{Sxx}\]
+
+
+Os valores das variâncias são quantidades pivotais, ou seja, caso siga normalidade,podemos fazer intervalo de confiança e teste de hiposteses.
+
+teste modo temos que a formula exata,seguindo normalidade, é dada por :
+
+\[\hat{\alpha} \sim N(\alpha,\sigma^2(\frac{1}{n}+\frac{\bar{x}_n^2}{Sxx}))
+\]
+\[\hat{\beta} \sim N(\beta,\dfrac{\sigma^2}{Sxx})
+\]
+
+
+#### Resíduos e o R-quadratico   :
+
+#### ANOVA:
+
+
+#### Intervalo de Confiaça e Intervalo de Predição :
+
+### Regressão no R :
+
+Para fazer Regressão no R vamos precisar dos seguintes pacotes o `easystats` ,`tidyverse`,`tidymodels` e `plotly`. A regressão é feita pelo comando *lm(y~x)* e no caso multiplo é só somar mais um variavel explicativa *lm(y ~ x1+ x2)*.
+
+Vamos pegar uma base como exemplo,usando a função `report()` do easystats para descrever a base de dados *mtcars*
+
+```{r}
+# Pacote para abrir pacotes,atualizar e instalar os que não tem.
+library(pacman)
+#  chamando os pacotes
+pacman::p_load(easystats,tidyverse,tidymodels,plotly,DT)
+
+# base de dados mtcars
+
+# Fazendo uma tabela com as principais medidas de posição e disperção.
+report_table(mtcars) %>% DT::datatable()
+
+```
+ 
+

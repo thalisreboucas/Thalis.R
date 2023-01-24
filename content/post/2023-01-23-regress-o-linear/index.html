@@ -1,0 +1,98 @@
+---
+title: Regressão linear
+author: 'Thalis Rebouças'
+date: '2023-01-23'
+slug: regress-o-linear
+categories: R
+tags: 
+- R
+- Machine Learning
+description: AL.EM
+image: images/portfolio/rgl.png
+draft: no
+---
+
+<script src="{{< blogdown/postref >}}index_files/htmlwidgets/htmlwidgets.js"></script>
+<link href="{{< blogdown/postref >}}index_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
+<script src="{{< blogdown/postref >}}index_files/datatables-binding/datatables.js"></script>
+<script src="{{< blogdown/postref >}}index_files/jquery/jquery-3.6.0.min.js"></script>
+<link href="{{< blogdown/postref >}}index_files/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="{{< blogdown/postref >}}index_files/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="{{< blogdown/postref >}}index_files/dt-core/js/jquery.dataTables.min.js"></script>
+<link href="{{< blogdown/postref >}}index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
+<script src="{{< blogdown/postref >}}index_files/crosstalk/js/crosstalk.min.js"></script>
+
+
+<div id="regressão-linear" class="section level2">
+<h2>Regressão Linear</h2>
+<div id="o-que-é-isso" class="section level3">
+<h3>O que é isso ?</h3>
+<p>A regressão é de maneira geral no caso simples é uma formula que você consegue gerar uma reta e essa reta descreve o comportamento de uma relação linear nos parâmetros e assim , conseguir entender o <span class="math inline">\(\alpha\)</span> e o <span class="math inline">\(\beta\)</span> que gera a reta assim conseguindo prever os possiveis valores ou <em>(depende de normalidade essa parte)</em> fazer inferência de <code>segunda ordem</code>.
+Já na multipla não temos mais uma reta e sim um <em>Hiperplano</em> ,pronto finalizamos o resumo conceito, bora para as formulas :</p>
+</div>
+<div id="importante-para-fazer-regressão" class="section level3">
+<h3>Importante para fazer Regressão :</h3>
+<div id="linear-simples" class="section level4">
+<h4>Linear Simples :</h4>
+<p>A coisa mais importante para fazer regressão são seus presupostos neste caso são cinco :</p>
+<ol style="list-style-type: decimal">
+<li>A função de Regressão é Linear nos parâmtros.(<span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta\)</span>)</li>
+<li>Os valores dos <span class="math inline">\(x_i\)</span> são fixos e conhecidos ,não são uma variável aleatória.</li>
+<li>Os erros tem média 0, ou seja, <span class="math inline">\(E[e_i|x_i] = 0\)</span></li>
+<li>Os erros tem varância 1 e constante (Homoscesdaticidade), ou seja, <span class="math inline">\(Var[e_i|x_i] = \sigma^2\)</span></li>
+<li>Os erros são não correlacionados, <span class="math inline">\(Cov(e_i,e_j) = E[e_ie_j]=0\)</span></li>
+</ol>
+<p>A formula é dado por :</p>
+<p><span class="math display">\[y_i = \alpha + \beta x_i + e_i\ \ i =1,...,n
+\]</span></p>
+</div>
+<div id="linear-multipla" class="section level4">
+<h4>Linear Multipla :</h4>
+<ol style="list-style-type: decimal">
+<li>A função de Regressão é Linear nos parâmtros.(<span class="math inline">\(\alpha\)</span> e <span class="math inline">\(\beta_n\)</span>)</li>
+<li>Os valores dos <span class="math inline">\(x_i\)</span> são fixos e conhecidos, a matriz de especificação $X(n  p) $ sendo não aleatória e de posto completo.</li>
+<li>Os erros tem média 0, ou seja, <span class="math inline">\(E[e_i|x_i] = 0\)</span></li>
+<li>Os erros tem varância 1 e constante (Homoscesdaticidade), ou seja, <span class="math inline">\(Var[e_i|x_i] = \sigma^2I_n\)</span></li>
+<li>Os erros são não correlacionados, <span class="math inline">\(Cov(e_i,e_j) = E[e_ie_j]=0\)</span></li>
+</ol>
+<p><span class="math display">\[y_i = \alpha + \beta_1 x_{1i} +\beta_2 x_{2i} + e_i\ \ i =1,...,n
+\]</span></p>
+</div>
+<div id="métodos-dos-mínimos-quadrados" class="section level4">
+<h4>Métodos dos Mínimos Quadrados</h4>
+<p>Esse é o método padrão que o software R usa e com isso ele estima a melhor retá que minimiza a distância do valor observado para o valor ajustado da reta.</p>
+<p>Todas as provas deste metodo é disponibilizado neste site <a href="https://statproofbook.github.io/I/ToC" class="uri">https://statproofbook.github.io/I/ToC</a> na seção 1.4 e na seçãp 1.5 tem a provas em matrizes na forma multipla.</p>
+</div>
+</div>
+<div id="regressão-no-r" class="section level3">
+<h3>Regressão no R :</h3>
+<p>Para fazer Regressão no R vamos precisar dos seguintes pacotes o <code>easystats</code> ,<code>tidyverse</code>,<code>tidymodels</code> e <code>plotly</code>. A regressão é feita pelo comando <em>lm(y~x)</em> e no caso multiplo é só somar mais um variavel explicativa <em>lm(y ~ x1+ x2)</em>.</p>
+<p>Vamos pegar uma base como exemplo,usando a função <code>report()</code> do easystats para descrever a base de dados <em>mtcars</em></p>
+<pre class="r"><code># Pacote para abrir pacotes,atualizar e instalar os que não tem.
+library(pacman)
+#  chamando os pacotes
+pacman::p_load(easystats,tidyverse,tidymodels,plotly,dt)</code></pre>
+<pre><code>## Warning: package &#39;dt&#39; is not available for this version of R
+## 
+## A version of this package for your version of R might be available elsewhere,
+## see the ideas at
+## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
+<pre><code>## Warning: Perhaps you meant &#39;DT&#39; ?</code></pre>
+<pre><code>## Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.2:
+##   não foi possível abrir a URL &#39;http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.2/PACKAGES&#39;</code></pre>
+<pre><code>## Warning: &#39;BiocManager&#39; not available.  Could not check Bioconductor.
+## 
+## Please use `install.packages(&#39;BiocManager&#39;)` and then retry.</code></pre>
+<pre><code>## Warning in p_install(package, character.only = TRUE, ...):</code></pre>
+<pre><code>## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+## logical.return = TRUE, : there is no package called &#39;dt&#39;</code></pre>
+<pre><code>## Warning in pacman::p_load(easystats, tidyverse, tidymodels, plotly, dt): Failed to install/load:
+## dt</code></pre>
+<pre class="r"><code># base de dados mtcars
+
+# Fazendo uma tabela com as principais medidas de posição e disperção.
+report_table(mtcars) %&gt;% DT::datatable()</code></pre>
+<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"data":[["9","7","11","10","5","4","8","2","1","6","3"],["mpg","cyl","disp","hp","drat","wt","qsec","vs","am","gear","carb"],[32,32,32,32,32,32,32,32,32,32,32],[20.090625,6.1875,230.721875,146.6875,3.5965625,3.21725,17.84875,0.4375,0.40625,3.6875,2.8125],[6.0269480520891,1.78592164694654,123.938693831382,68.5628684893206,0.534678736070971,0.978457442989697,1.78694323609684,0.504016128774185,0.498990917235846,0.737804065256947,1.61519997763185],[19.2,6,196.3,123,3.695,3.325,17.71,0,0,4,2],[5.41149,2.9652,140.47635,77.0952,0.704235,0.7672455,1.415883,0,0,1.4826,1.4826],[10.4,4,71.1,52,2.76,1.513,14.5,0,0,3,1],[33.9,8,472,335,4.93,5.424,22.9,1,1,5,8],[0.672377137629083,-0.192260860069347,0.420233121470044,0.799406692595638,0.292780213240835,0.465916106792987,0.406346629240497,0.264541798806345,0.400808898702801,0.582308569254098,1.15709111273815],[-0.0220062914240839,-1.7627938970112,-1.06752340014347,0.275211587537112,-0.450432451127173,0.416594669634926,0.864930652864535,-2.06327312534209,-1.96655032807483,-0.895291613452533,2.02005930808117],[0,0,0,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Variable<\/th>\n      <th>n_Obs<\/th>\n      <th>Mean<\/th>\n      <th>SD<\/th>\n      <th>Median<\/th>\n      <th>MAD<\/th>\n      <th>Min<\/th>\n      <th>Max<\/th>\n      <th>Skewness<\/th>\n      <th>Kurtosis<\/th>\n      <th>n_Missing<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
