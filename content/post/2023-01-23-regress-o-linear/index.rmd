@@ -128,7 +128,7 @@ report_table(mtcars) %>% knitr::kable(digits = 3)
 ```
  
 
-```{r}
+```{r fig.width = 9, fig.height = 9}
 # Vendo as correlações
 plot(correlation(mtcars, partial = TRUE)) +
   scale_edge_color_continuous(low = "#000000", high = "#f55b14") 
@@ -136,6 +136,13 @@ plot(correlation(mtcars, partial = TRUE)) +
 
 
 ```{r}
-correlation(mtcars)  
+
+# Tabela de correlação
+t1 <- correlation(mtcars) 
+
+# transformando em um tablea apresentavel
+t1 %>%  
+  dplyr::select(-df_error,-Method,-n_Obs) %>%
+  knitr::kable(digits = 3)
 ```
 
