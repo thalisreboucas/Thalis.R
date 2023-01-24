@@ -118,12 +118,12 @@ Vamos pegar uma base como exemplo,usando a função `report()` do easystats para
 # Pacote para abrir pacotes,atualizar e instalar os que não tem.
 library(pacman)
 #  chamando os pacotes
-pacman::p_load(easystats,tidyverse,tidymodels,plotly,DT)
+pacman::p_load(easystats,tidyverse,tidymodels,plotly)
 
 # base de dados mtcars
 
 # Fazendo uma tabela com as principais medidas de posição e disperção.
-report_table(mtcars) %>% DT::datatable()
+report_table(mtcars) %>% knitr::kable(digits = 3)
 
 ```
  

@@ -12,15 +12,6 @@ image: images/portfolio/rgl.png
 draft: no
 ---
 
-<script src="{{< blogdown/postref >}}index_files/htmlwidgets/htmlwidgets.js"></script>
-<link href="{{< blogdown/postref >}}index_files/datatables-css/datatables-crosstalk.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/datatables-binding/datatables.js"></script>
-<script src="{{< blogdown/postref >}}index_files/jquery/jquery-3.6.0.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/dt-core/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="{{< blogdown/postref >}}index_files/dt-core/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/dt-core/js/jquery.dataTables.min.js"></script>
-<link href="{{< blogdown/postref >}}index_files/crosstalk/css/crosstalk.min.css" rel="stylesheet" />
-<script src="{{< blogdown/postref >}}index_files/crosstalk/js/crosstalk.min.js"></script>
 
 
 <div id="regressão-linear" class="section level2">
@@ -59,9 +50,51 @@ Já na multipla não temos mais uma reta e sim um <em>Hiperplano</em> ,pronto fi
 \]</span></p>
 </div>
 <div id="métodos-dos-mínimos-quadrados" class="section level4">
-<h4>Métodos dos Mínimos Quadrados</h4>
+<h4>Métodos dos Mínimos Quadrados:</h4>
 <p>Esse é o método padrão que o software R usa e com isso ele estima a melhor retá que minimiza a distância do valor observado para o valor ajustado da reta.</p>
-<p>Todas as provas deste metodo é disponibilizado neste site <a href="https://statproofbook.github.io/I/ToC" class="uri">https://statproofbook.github.io/I/ToC</a> na seção 1.4 e na seçãp 1.5 tem a provas em matrizes na forma multipla.</p>
+</div>
+<div id="estimação-dos-parâmentros" class="section level4">
+<h4>Estimação dos Parâmentros:</h4>
+<p>Neste caso o <span class="math inline">\(\alpha\)</span> estimado da reta é dada pela seguinte formula :</p>
+<p><span class="math display">\[\alpha = \bar{y}-\beta \bar{x}
+\]</span></p>
+<p>Onde o <span class="math inline">\(\bar{y}\)</span> é a média amostral de <span class="math inline">\(Y\)</span> ,que é a variável resposta e <span class="math inline">\(\bar{x}\)</span> é a média dos <span class="math inline">\(x_i\)</span>,que são as variáveis explicativas.</p>
+<p>Agora para estimar o <span class="math inline">\(\beta\)</span> temos a seguinte formula :</p>
+<p><span class="math display">\[\beta = \dfrac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sum_{i=1}^{n}(x_i-\bar{x})^2} = \dfrac{Sxy}{Sxx}
+\]</span></p>
+<p>Na forma matricial o <span class="math inline">\(\beta\)</span> é dado pela seguinte formula :</p>
+<p><span class="math display">\[\beta = (X^TX)^{-1}X^Ty
+\]</span></p>
+<p>Todas as provas deste metodo é disponibilizado neste site <a href="https://statproofbook.github.io/I/ToC" class="uri">https://statproofbook.github.io/I/ToC</a> na seção 1.4 e na seçãp 1.5 tem a provas em matrizes na forma multipla.O Teorema Gauss-Markov garante (embora indiretamente) que o estimador de mínimos quadrados é o estimador não-enviesado de mínima variância linear na variável resposta,caso siga uma distribuição normal.</p>
+</div>
+<div id="formula-exata-dos-parâmetros" class="section level4">
+<h4>Formula exata dos Parâmetros:</h4>
+<p>Uma das coisas importantes da estatística é saber a sua média e também a sua variânça,por isso, temos que :</p>
+<ol style="list-style-type: decimal">
+<li><p>Variância do <span class="math inline">\(\alpha\)</span> :
+<span class="math display">\[Var[\hat{\alpha}] =\sigma^2(\frac{1}{n}+\frac{\bar{x}_n^2}{Sxx})
+\]</span></p></li>
+<li><p>Variância do <span class="math inline">\(\beta\)</span> :
+<span class="math display">\[Var[\hat{\beta}] = \dfrac{\sigma^2}{Sxx}
+\]</span></p></li>
+<li><p>Covariância
+<span class="math display">\[Cov(\hat{\alpha},\hat{\beta})= -\dfrac{\sigma^2\hat{x}_n}{Sxx}\]</span></p></li>
+</ol>
+<p>Os valores das variâncias são quantidades pivotais, ou seja, caso siga normalidade,podemos fazer intervalo de confiança e teste de hiposteses.</p>
+<p>teste modo temos que a formula exata,seguindo normalidade, é dada por :</p>
+<p><span class="math display">\[\hat{\alpha} \sim N(\alpha,\sigma^2(\frac{1}{n}+\frac{\bar{x}_n^2}{Sxx}))
+\]</span>
+<span class="math display">\[\hat{\beta} \sim N(\beta,\dfrac{\sigma^2}{Sxx})
+\]</span></p>
+</div>
+<div id="resíduos-e-o-r-quadratico" class="section level4">
+<h4>Resíduos e o R-quadratico :</h4>
+</div>
+<div id="anova" class="section level4">
+<h4>ANOVA:</h4>
+</div>
+<div id="intervalo-de-confiaça-e-intervalo-de-predição" class="section level4">
+<h4>Intervalo de Confiaça e Intervalo de Predição :</h4>
 </div>
 </div>
 <div id="regressão-no-r" class="section level3">
@@ -71,28 +104,199 @@ Já na multipla não temos mais uma reta e sim um <em>Hiperplano</em> ,pronto fi
 <pre class="r"><code># Pacote para abrir pacotes,atualizar e instalar os que não tem.
 library(pacman)
 #  chamando os pacotes
-pacman::p_load(easystats,tidyverse,tidymodels,plotly,dt)</code></pre>
-<pre><code>## Warning: package &#39;dt&#39; is not available for this version of R
-## 
-## A version of this package for your version of R might be available elsewhere,
-## see the ideas at
-## https://cran.r-project.org/doc/manuals/r-patched/R-admin.html#Installing-packages</code></pre>
-<pre><code>## Warning: Perhaps you meant &#39;DT&#39; ?</code></pre>
-<pre><code>## Warning: unable to access index for repository http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.2:
-##   não foi possível abrir a URL &#39;http://www.stats.ox.ac.uk/pub/RWin/bin/windows/contrib/4.2/PACKAGES&#39;</code></pre>
-<pre><code>## Warning: &#39;BiocManager&#39; not available.  Could not check Bioconductor.
-## 
-## Please use `install.packages(&#39;BiocManager&#39;)` and then retry.</code></pre>
-<pre><code>## Warning in p_install(package, character.only = TRUE, ...):</code></pre>
-<pre><code>## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
-## logical.return = TRUE, : there is no package called &#39;dt&#39;</code></pre>
-<pre><code>## Warning in pacman::p_load(easystats, tidyverse, tidymodels, plotly, dt): Failed to install/load:
-## dt</code></pre>
-<pre class="r"><code># base de dados mtcars
+pacman::p_load(easystats,tidyverse,tidymodels,plotly)
+
+# base de dados mtcars
 
 # Fazendo uma tabela com as principais medidas de posição e disperção.
-report_table(mtcars) %&gt;% DT::datatable()</code></pre>
-<div id="htmlwidget-1" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1">{"x":{"filter":"none","vertical":false,"data":[["9","7","11","10","5","4","8","2","1","6","3"],["mpg","cyl","disp","hp","drat","wt","qsec","vs","am","gear","carb"],[32,32,32,32,32,32,32,32,32,32,32],[20.090625,6.1875,230.721875,146.6875,3.5965625,3.21725,17.84875,0.4375,0.40625,3.6875,2.8125],[6.0269480520891,1.78592164694654,123.938693831382,68.5628684893206,0.534678736070971,0.978457442989697,1.78694323609684,0.504016128774185,0.498990917235846,0.737804065256947,1.61519997763185],[19.2,6,196.3,123,3.695,3.325,17.71,0,0,4,2],[5.41149,2.9652,140.47635,77.0952,0.704235,0.7672455,1.415883,0,0,1.4826,1.4826],[10.4,4,71.1,52,2.76,1.513,14.5,0,0,3,1],[33.9,8,472,335,4.93,5.424,22.9,1,1,5,8],[0.672377137629083,-0.192260860069347,0.420233121470044,0.799406692595638,0.292780213240835,0.465916106792987,0.406346629240497,0.264541798806345,0.400808898702801,0.582308569254098,1.15709111273815],[-0.0220062914240839,-1.7627938970112,-1.06752340014347,0.275211587537112,-0.450432451127173,0.416594669634926,0.864930652864535,-2.06327312534209,-1.96655032807483,-0.895291613452533,2.02005930808117],[0,0,0,0,0,0,0,0,0,0,0]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Variable<\/th>\n      <th>n_Obs<\/th>\n      <th>Mean<\/th>\n      <th>SD<\/th>\n      <th>Median<\/th>\n      <th>MAD<\/th>\n      <th>Min<\/th>\n      <th>Max<\/th>\n      <th>Skewness<\/th>\n      <th>Kurtosis<\/th>\n      <th>n_Missing<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[2,3,4,5,6,7,8,9,10,11]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+report_table(mtcars) %&gt;% knitr::kable(digits = 3)</code></pre>
+<table style="width:100%;">
+<colgroup>
+<col width="3%" />
+<col width="9%" />
+<col width="6%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="8%" />
+<col width="7%" />
+<col width="8%" />
+<col width="9%" />
+<col width="9%" />
+<col width="10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="left">Variable</th>
+<th align="right">n_Obs</th>
+<th align="right">Mean</th>
+<th align="right">SD</th>
+<th align="right">Median</th>
+<th align="right">MAD</th>
+<th align="right">Min</th>
+<th align="right">Max</th>
+<th align="right">Skewness</th>
+<th align="right">Kurtosis</th>
+<th align="right">n_Missing</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">9</td>
+<td align="left">mpg</td>
+<td align="right">32</td>
+<td align="right">20.091</td>
+<td align="right">6.027</td>
+<td align="right">19.200</td>
+<td align="right">5.411</td>
+<td align="right">10.400</td>
+<td align="right">33.900</td>
+<td align="right">0.672</td>
+<td align="right">-0.022</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">7</td>
+<td align="left">cyl</td>
+<td align="right">32</td>
+<td align="right">6.188</td>
+<td align="right">1.786</td>
+<td align="right">6.000</td>
+<td align="right">2.965</td>
+<td align="right">4.000</td>
+<td align="right">8.000</td>
+<td align="right">-0.192</td>
+<td align="right">-1.763</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">11</td>
+<td align="left">disp</td>
+<td align="right">32</td>
+<td align="right">230.722</td>
+<td align="right">123.939</td>
+<td align="right">196.300</td>
+<td align="right">140.476</td>
+<td align="right">71.100</td>
+<td align="right">472.000</td>
+<td align="right">0.420</td>
+<td align="right">-1.068</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">10</td>
+<td align="left">hp</td>
+<td align="right">32</td>
+<td align="right">146.688</td>
+<td align="right">68.563</td>
+<td align="right">123.000</td>
+<td align="right">77.095</td>
+<td align="right">52.000</td>
+<td align="right">335.000</td>
+<td align="right">0.799</td>
+<td align="right">0.275</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">5</td>
+<td align="left">drat</td>
+<td align="right">32</td>
+<td align="right">3.597</td>
+<td align="right">0.535</td>
+<td align="right">3.695</td>
+<td align="right">0.704</td>
+<td align="right">2.760</td>
+<td align="right">4.930</td>
+<td align="right">0.293</td>
+<td align="right">-0.450</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">4</td>
+<td align="left">wt</td>
+<td align="right">32</td>
+<td align="right">3.217</td>
+<td align="right">0.978</td>
+<td align="right">3.325</td>
+<td align="right">0.767</td>
+<td align="right">1.513</td>
+<td align="right">5.424</td>
+<td align="right">0.466</td>
+<td align="right">0.417</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">8</td>
+<td align="left">qsec</td>
+<td align="right">32</td>
+<td align="right">17.849</td>
+<td align="right">1.787</td>
+<td align="right">17.710</td>
+<td align="right">1.416</td>
+<td align="right">14.500</td>
+<td align="right">22.900</td>
+<td align="right">0.406</td>
+<td align="right">0.865</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">2</td>
+<td align="left">vs</td>
+<td align="right">32</td>
+<td align="right">0.438</td>
+<td align="right">0.504</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">1.000</td>
+<td align="right">0.265</td>
+<td align="right">-2.063</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">1</td>
+<td align="left">am</td>
+<td align="right">32</td>
+<td align="right">0.406</td>
+<td align="right">0.499</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">0.000</td>
+<td align="right">1.000</td>
+<td align="right">0.401</td>
+<td align="right">-1.967</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">6</td>
+<td align="left">gear</td>
+<td align="right">32</td>
+<td align="right">3.688</td>
+<td align="right">0.738</td>
+<td align="right">4.000</td>
+<td align="right">1.483</td>
+<td align="right">3.000</td>
+<td align="right">5.000</td>
+<td align="right">0.582</td>
+<td align="right">-0.895</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">3</td>
+<td align="left">carb</td>
+<td align="right">32</td>
+<td align="right">2.812</td>
+<td align="right">1.615</td>
+<td align="right">2.000</td>
+<td align="right">1.483</td>
+<td align="right">1.000</td>
+<td align="right">8.000</td>
+<td align="right">1.157</td>
+<td align="right">2.020</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
