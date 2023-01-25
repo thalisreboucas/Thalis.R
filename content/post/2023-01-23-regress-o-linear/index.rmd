@@ -101,12 +101,29 @@ teste modo temos que a formula exata,seguindo normalidade, é dada por :
 \]
 
 
-#### Resíduos e o R-quadratico   :
+#### Resíduos:
+
+Os resíduos são a diferença do valor observado menos o valor predito ,assim :
+
+\[e_i = y_i-\hat{y_i}
+\]
+
+e temos que os resíduos segue um ruído branco :
+
+\[e \sim RB(0,\sigma^2)
+\]
+
+O estimador para os resíduos é dado por :
+
+\[\hat{e_i} = y_i - \hat{y_i} \sim (0 , 1 - \frac{1}{n}-\frac{(x_i-\bar{x_n})^2}{Sxx}) 
+\]
 
 #### ANOVA:
 
 
 #### Intervalo de Confiaça e Intervalo de Predição :
+
+
 
 ### Regressão no R :
 
@@ -118,19 +135,20 @@ Vamos pegar uma base como exemplo,usando a função `report()` do easystats para
 # Pacote para abrir pacotes,atualizar e instalar os que não tem.
 library(pacman)
 #  chamando os pacotes
-pacman::p_load(easystats,tidyverse,tidymodels,tidygraph,plotly)
+pacman::p_load(easystats,tidyverse,tidymodels,tidygraph,plotly,kableExtra)
 
 # base de dados mtcars
 
 # Fazendo uma tabela com as principais medidas de posição e disperção.
-report_table(mtcars) %>% knitr::kable(digits = 3)
+report_table(mtcars) %>% select(-n_Missing) %>% kbl(digits = 2) %>%
+  kable_styling()
 
 ```
  
 
-```{r fig.width = 9, fig.height = 9}
+```{r fig.width = 8, fig.height = 9}
 # Vendo as correlações
-plot(correlation(mtcars, partial = TRUE)) +
+plot(correlation(mtcars))+
   scale_edge_color_continuous(low = "#000000", high = "#f55b14") 
 ```
 
@@ -141,7 +159,8 @@ t1 <- correlation(mtcars)
 
 # transformando em um tablea apresentavel
 t1 %>%  
-  dplyr::select(-df_error,-Method,-n_Obs) %>%
-  knitr::kable(digits = 3)
+  dplyr::rename("p-value" = "p") %>% 
+  dplyr::select(-CI,-df_error,-Method,-n_Obs,-t)%>% kbl(digits = 2) %>%
+  kable_styling()
 ```
 
