@@ -30,12 +30,10 @@ params:
        - link: plugins/css/reset.css
        - link: plugins/css/plugins.css
        - link: plugins/css/style.css
-       - link: plugins/css/bootstrapTable.min.css
+       - link: plugins/css/table.css
        - link: plugins/css/color.css
-
      js:
       - link: plugins/js/jquery.min.js
-      - link: plugins/js/bootstrapTable.js
       - link: plugins/js/plugins.js
       - link: plugins/js/scripts.js
       - link: //cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js
