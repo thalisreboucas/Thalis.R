@@ -120,10 +120,23 @@ O estimador para os resíduos é dado por :
 
 #### ANOVA:
 
+Temos a tabela da ANOVA, que possui os seguintes indicadores : Graus de Liberdade,Soma dos quadrados , Quadros médios e o Valor F(existência ou não de regressão)
 
-#### Intervalo de Confiaça e Intervalo de Predição :
+Nela é possivel todos esses indicadores da Regressão,Resíduos e os totais .
+
+| Causa da Variação | GL  | SQ                                  | QM                                  | F                          |
+|-------------------|-----|-------------------------------------|-------------------------------------|----------------------------|
+| Regressão         | 1   | $\sum_{i=1}^n(\hat{y}-\bar{y}_n)^2$ | Formula do lado dividido por 1      | É a divisão do QMReg/QMRES |
+| Resíduos          | n-2 | $\sum_{i=1}^n(y-\hat{y}_n)^2$       | Formula do lado dividido por n - 2  |                            |
+| Total             | n-1 | $\sum_{i=1}^n(y-\bar{y}_n)^2$       | Formula do lado dividido por n -1   |                            |
 
 
+
+#### Intervalo de Confiança e Intervalo de Predição :
+
+Para fazer os Intervalo de Confiança ,eu preciso dos estimadores vistos a cima e os désvios padrões que vão ser a nossa quantidade pivotal.
+
+Para fazer os Intervalo de Predição, eu preciso dos valores preditos e o désvio padrão do $\alpha$ que vai ser a nossa quantidade pivotal.
 
 ### Regressão no R :
 
@@ -135,7 +148,7 @@ Vamos pegar uma base como exemplo,usando a função `report()` do easystats para
 # Pacote para abrir pacotes,atualizar e instalar os que não tem.
 library(pacman)
 #  chamando os pacotes
-pacman::p_load(easystats,tidyverse,tidymodels,tidygraph,plotly,kableExtra)
+pacman::p_load(easystats,tidyverse,tidymodels,tidygraph,plotly,car,kableExtra)
 
 # base de dados mtcars
 
@@ -153,7 +166,7 @@ plot(correlation(mtcars))+
 ```
 
 
-```{r}
+```{}
 # Tabela de correlação
 t1 <- correlation(mtcars) 
 
@@ -163,4 +176,32 @@ t1 %>%
   dplyr::select(-CI,-df_error,-Method,-n_Obs,-t)%>% kbl(digits = 2) %>%
   kable_styling()
 ```
+
+Vamor ver agora se o "mpg" = Milhas por galão (do inglês Miles/(US) gallon) é explicador pelo número de cilíndros "cyl" , potêcnia "hp" e peso "wt".
+
+\[Mpg = b_0 + x_1b_1 + x_2b_2 + x_3b_3 
+\]
+
+Para aplicar a relação de minimos quadrados no r é usado o comando ´lm()´.
+
+```{r}
+modelo <- lm( mpg ~ cyl + hp +wt ,data = mtcars )
+
+# checando o modelo
+model_performance(modelo)
+```
+Temos que esse modelo consegue explicar cerca de 82,6% a consumo de combustivel dos carros pelo número de cilíndros ,potência e peso.
+
+
+```{r}
+check_model(modelo)
+
+```
+Checando o modelo temos uma baixa colinearidade, ou seja, não temos variáveis explicando a mesma coisa, cada uma contribui de forma diferentes para ocorrer a regressão. Podemos dizer que a variância é homogênia,porém a temos que quanto mais consome combustivel os carros tem uma diferença possivelmente significativa. Temos alguns pontos influêntes ,porém não significativos. 
+
+O final temos o relátorio.
+```{r}
+cat(report(modelo))
+```
+
 
