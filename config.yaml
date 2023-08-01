@@ -1,7 +1,7 @@
 baseURL: https://thalisreboucas.com.br/
 title: Thalis Rebouças
 languageCode: pt-br
-googleAnalytics: 'G-HQXYFWMZ3J'
+googleAnalytics: 'G-1KYRN03V60'
 ignoreFiles:
   - \.Rmd$
   - \.Rmarkdown$
