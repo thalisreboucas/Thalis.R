@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Thalis Rebouças</title>
+    <link>https://thalisreboucas.com.br/tags/</link>
+    <description>Recent content in Tags on Thalis Rebouças</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://thalisreboucas.com.br/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine Learning</title>
+      <link>https://thalisreboucas.com.br/tags/machine-learning/</link>
+      <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://thalisreboucas.com.br/tags/r/</link>
+      <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shiny</title>
+      <link>https://thalisreboucas.com.br/tags/shiny/</link>
+      <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/tags/shiny/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>WebScraping</title>
+      <link>https://thalisreboucas.com.br/tags/webscraping/</link>
+      <pubDate>Mon, 07 Feb 2022 20:13:29 -0300</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/tags/webscraping/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ggplot</title>
+      <link>https://thalisreboucas.com.br/tags/ggplot/</link>
+      <pubDate>Wed, 27 Oct 2021 12:14:34 +0300</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/tags/ggplot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rmarkdown</title>
+      <link>https://thalisreboucas.com.br/tags/rmarkdown/</link>
+      <pubDate>Wed, 27 Oct 2021 12:14:34 +0300</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/tags/rmarkdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://thalisreboucas.com.br/tags/python/</link>
+      <pubDate>Sun, 10 Jan 2021 12:14:34 +0600</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/tags/python/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

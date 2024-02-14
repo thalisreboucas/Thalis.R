@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WebScraping on Thalis Rebouças</title>
+    <link>https://thalisreboucas.com.br/tags/webscraping/</link>
+    <description>Recent content in WebScraping on Thalis Rebouças</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Mon, 07 Feb 2022 20:13:29 -0300</lastBuildDate><atom:link href="https://thalisreboucas.com.br/tags/webscraping/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Websraping Estados Do Ceará</title>
+      <link>https://thalisreboucas.com.br/2022/02/07/websraping-estados-do-cear%C3%A1/</link>
+      <pubDate>Mon, 07 Feb 2022 20:13:29 -0300</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/2022/02/07/websraping-estados-do-cear%C3%A1/</guid>
+      <description>Para esta aplicação vamos Precisar do Pacote Rvest responsavél por fazer esse trabalho para gente.
+Neste caso ele ira fazer uma raspagem do site paseando pelo html e pegando os dados que irimeos dizer para ele capturar.
+Utilizaremos também o tidyverse e stringr para ajudar na manipulação de dados.
+O site que vamos pegar as informações é o “https://cep.guiamais.com.br/” , que possue os ceps e endereços de todos os estados do Brasil.</description>
+    </item>
+    
+  </channel>
+</rss>

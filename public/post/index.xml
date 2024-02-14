@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog | Thalis on Thalis Rebouças</title>
+    <link>https://thalisreboucas.com.br/post/</link>
+    <description>Recent content in Blog | Thalis on Thalis Rebouças</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://thalisreboucas.com.br/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dashboard da ceasa-ce</title>
+      <link>https://thalisreboucas.com.br/2023/07/24/shiny-ceasa/</link>
+      <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/2023/07/24/shiny-ceasa/</guid>
+      <description>Dashboard ceasa-ceO Dashboard de Análise de Séries Temporais da CEASA Fortaleza, Ceará, é uma ferramenta interativa criada utilizando a linguagem de programação R e a biblioteca Shiny. A CEASA (Centrais de Abastecimento do Ceará) é um importante centro de distribuição de produtos agrícolas e hortifrutigranjeiros na região.
+O objetivo deste dashboard é fornecer aos usuários uma análise visual e interativa das séries temporais de diferentes produtos comercializados na CEASA Fortaleza.</description>
+    </item>
+    
+    <item>
+      <title>Regressão linear</title>
+      <link>https://thalisreboucas.com.br/2023/01/23/regress-o-linear/</link>
+      <pubDate>Mon, 23 Jan 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/2023/01/23/regress-o-linear/</guid>
+      <description>Regressão LinearO que é isso ?A regressão é de maneira geral no caso simples é uma formula que você consegue gerar uma reta e essa reta descreve o comportamento de uma relação linear nos parâmetros e assim , conseguir entender o \(\alpha\) e o \(\beta\) que gera a reta assim conseguindo prever os possiveis valores ou (depende de normalidade essa parte) fazer inferência de segunda ordem.Já na multipla não temos mais uma reta e sim um Hiperplano ,pronto finalizamos o resumo conceito, bora para as formulas :</description>
+    </item>
+    
+    <item>
+      <title>ALEM</title>
+      <link>https://thalisreboucas.com.br/2022/08/10/alem/</link>
+      <pubDate>Wed, 10 Aug 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/2022/08/10/alem/</guid>
+      <description>Algoritmo de maximização de expectativaO que é ?É um método interativo baseado em uma maximização para estimar os parâmentros da distribuições a partir dos dados da amostra. Os dados podem ser variáveis latentes, ou seja, não observadas de forma quantitativa inicialmente, nesta ferramentas pode utilizar o banco de dados com dados faltantes, pois em uma das etapas ocorre a imputação de dados para estimar o modelo.</description>
+    </item>
+    
+    <item>
+      <title>Websraping Estados Do Ceará</title>
+      <link>https://thalisreboucas.com.br/2022/02/07/websraping-estados-do-cear%C3%A1/</link>
+      <pubDate>Mon, 07 Feb 2022 20:13:29 -0300</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/2022/02/07/websraping-estados-do-cear%C3%A1/</guid>
+      <description>Para esta aplicação vamos Precisar do Pacote Rvest responsavél por fazer esse trabalho para gente.
+Neste caso ele ira fazer uma raspagem do site paseando pelo html e pegando os dados que irimeos dizer para ele capturar.
+Utilizaremos também o tidyverse e stringr para ajudar na manipulação de dados.
+O site que vamos pegar as informações é o “https://cep.guiamais.com.br/” , que possue os ceps e endereços de todos os estados do Brasil.</description>
+    </item>
+    
+    <item>
+      <title>Distribuições com R</title>
+      <link>https://thalisreboucas.com.br/2021/10/27/distribui%C3%A7%C3%B5es-com-r/</link>
+      <pubDate>Wed, 27 Oct 2021 12:14:34 +0300</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/2021/10/27/distribui%C3%A7%C3%B5es-com-r/</guid>
+      <description>PackgesPara fazer os gráficos no R será nescessario os Package’s dlpyr, ggplot2 e ploty.O dplyr serve para manipulação de dados e o ggplot e o plotly servem para fazer graficos.
+Criando o GráficoPara criar o Gráfico é nescessario usar o ggplot com o comando stat_function com o a função fun
+Normal &amp;lt;- ggplot( ) + # Para criar uma Figura#usando o fun com o function para criar a normal stat_function( fun = function (x)dnorm(x,0,1), #geom para deixar o gráfico todo preenchidogeom=&amp;quot;area&amp;quot; ,#xlim Para definir meu eixo X xlim = c(-3,3),# Colocando transparencia e cores #alpha é a transparenciaalpha = .</description>
+    </item>
+    
+    <item>
+      <title>C0des Python</title>
+      <link>https://thalisreboucas.com.br/2021/01/10/c0des-python/</link>
+      <pubDate>Sun, 10 Jan 2021 12:14:34 +0600</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/2021/01/10/c0des-python/</guid>
+      <description>Descrição Neste link temos um caminho até meu github onde temos algums Python explicados do básico a modelos de Machine learning PRONTOSSS !!
+Requerimentos É importante saber Python e saber como mexer no JupyterNotebook =)
+Tópicos 1.Regressão
+2.Regressão e otimização de parâmentos
+3.TensorFlow
+4.Tensorflow e Aplicações
+5.MindSpore
+Repositório no Github</description>
+    </item>
+    
+  </channel>
+</rss>

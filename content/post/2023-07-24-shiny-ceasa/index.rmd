@@ -35,7 +35,8 @@ Principais características do Dashboard:
 
 Em resumo, o Dashboard de Análise de Séries Temporais da CEASA Fortaleza, Ceará, feito em Shiny no R, é uma valiosa ferramenta para auxiliar gestores, produtores e analistas a compreender melhor os padrões e comportamentos das vendas e preços dos produtos ao longo do tempo, permitindo uma tomada de decisão mais informada e estratégica.
 
-![Print do dashboard](images/portfolio/img/print_dash.png)
+![Print do dashboard](https://raw.githubusercontent.com/thalisreboucas/Thalis.R/master/static/images/portfolio/img/print_dash.png){width=90%}
+
 link : https://thalisreboucas.shinyapps.io/shiny_ceasa/
 
 

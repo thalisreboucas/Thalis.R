@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shiny on Thalis Rebouças</title>
+    <link>https://thalisreboucas.com.br/tags/shiny/</link>
+    <description>Recent content in Shiny on Thalis Rebouças</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Mon, 24 Jul 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://thalisreboucas.com.br/tags/shiny/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dashboard da ceasa-ce</title>
+      <link>https://thalisreboucas.com.br/2023/07/24/shiny-ceasa/</link>
+      <pubDate>Mon, 24 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/2023/07/24/shiny-ceasa/</guid>
+      <description>Dashboard ceasa-ceO Dashboard de Análise de Séries Temporais da CEASA Fortaleza, Ceará, é uma ferramenta interativa criada utilizando a linguagem de programação R e a biblioteca Shiny. A CEASA (Centrais de Abastecimento do Ceará) é um importante centro de distribuição de produtos agrícolas e hortifrutigranjeiros na região.
+O objetivo deste dashboard é fornecer aos usuários uma análise visual e interativa das séries temporais de diferentes produtos comercializados na CEASA Fortaleza.</description>
+    </item>
+    
+  </channel>
+</rss>

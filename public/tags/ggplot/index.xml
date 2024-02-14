@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ggplot on Thalis Rebouças</title>
+    <link>https://thalisreboucas.com.br/tags/ggplot/</link>
+    <description>Recent content in ggplot on Thalis Rebouças</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Wed, 27 Oct 2021 12:14:34 +0300</lastBuildDate><atom:link href="https://thalisreboucas.com.br/tags/ggplot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Distribuições com R</title>
+      <link>https://thalisreboucas.com.br/2021/10/27/distribui%C3%A7%C3%B5es-com-r/</link>
+      <pubDate>Wed, 27 Oct 2021 12:14:34 +0300</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/2021/10/27/distribui%C3%A7%C3%B5es-com-r/</guid>
+      <description>PackgesPara fazer os gráficos no R será nescessario os Package’s dlpyr, ggplot2 e ploty.O dplyr serve para manipulação de dados e o ggplot e o plotly servem para fazer graficos.
+Criando o GráficoPara criar o Gráfico é nescessario usar o ggplot com o comando stat_function com o a função fun
+Normal &amp;lt;- ggplot( ) + # Para criar uma Figura#usando o fun com o function para criar a normal stat_function( fun = function (x)dnorm(x,0,1), #geom para deixar o gráfico todo preenchidogeom=&amp;quot;area&amp;quot; ,#xlim Para definir meu eixo X xlim = c(-3,3),# Colocando transparencia e cores #alpha é a transparenciaalpha = .</description>
+    </item>
+    
+  </channel>
+</rss>

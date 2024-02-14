@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Thalis Rebouças</title>
+    <link>https://thalisreboucas.com.br/tags/python/</link>
+    <description>Recent content in Python on Thalis Rebouças</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>pt-br</language>
+    <lastBuildDate>Sun, 10 Jan 2021 12:14:34 +0600</lastBuildDate><atom:link href="https://thalisreboucas.com.br/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>C0des Python</title>
+      <link>https://thalisreboucas.com.br/2021/01/10/c0des-python/</link>
+      <pubDate>Sun, 10 Jan 2021 12:14:34 +0600</pubDate>
+      
+      <guid>https://thalisreboucas.com.br/2021/01/10/c0des-python/</guid>
+      <description>Descrição Neste link temos um caminho até meu github onde temos algums Python explicados do básico a modelos de Machine learning PRONTOSSS !!
+Requerimentos É importante saber Python e saber como mexer no JupyterNotebook =)
+Tópicos 1.Regressão
+2.Regressão e otimização de parâmentos
+3.TensorFlow
+4.Tensorflow e Aplicações
+5.MindSpore
+Repositório no Github</description>
+    </item>
+    
+  </channel>
+</rss>
