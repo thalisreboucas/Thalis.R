@@ -1,0 +1,17 @@
+---
+title: Teste Bi
+author: 'Thalis Rebouças'
+date: '2024-04-15'
+slug: Power BI
+categories: R
+tags: 
+- Power Bi
+- Dashboard
+description: Dashboard em Power Bi
+image: images/portfolio/dash.png
+draft: no
+---
+
+## Dashboard power  bi 
+
+<iframe title="Sales & Returns Sample v201912" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=6f922556-f04c-4da3-85a6-6d608628ff2a&autoAuth=true&ctid=8f9aa5c8-30d2-4411-b481-ac92a1864138" frameborder="0" allowFullScreen="true"></iframe>
