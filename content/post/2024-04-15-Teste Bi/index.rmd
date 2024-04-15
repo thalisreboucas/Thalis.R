@@ -14,4 +14,5 @@ draft: no
 
 ## Dashboard power  bi 
 
-<iframe title="Sales & Returns Sample v201912" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=fb389c40-5b82-4f7c-8cad-07ef2a67b37b&autoAuth=true&embeddedDemo=true" frameborder="0" allowFullScreen="true"></iframe>
+<iframe title="Sample Report Demo" width="1140" height="541.25" src="https://playground.powerbi.com/sampleReportEmbed" frameborder="0" allowFullScreen="true"></iframe>
+
